@@ -27,16 +27,21 @@ export default function MarketingSite(){
     return()=>{document.title=previous}
   },[])
   useEffect(()=>{
+    let frame=0
     const update=()=>{
-      const hero=heroRef.current
-      if(!hero)return
-      const rect=hero.getBoundingClientRect()
-      const travel=Math.max(1,hero.offsetHeight-window.innerHeight)
-      const progress=Math.min(1,Math.max(0,-rect.top/travel))
-      hero.style.setProperty('--flight-progress',String(progress))
+      if(frame)return
+      frame=requestAnimationFrame(()=>{
+        frame=0
+        const hero=heroRef.current
+        if(!hero)return
+        const rect=hero.getBoundingClientRect()
+        const travel=Math.max(1,hero.offsetHeight-window.innerHeight)
+        const progress=Math.min(1,Math.max(0,-rect.top/travel))
+        hero.style.setProperty('--flight-progress',String(progress))
+      })
     }
     update();window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update)
-    return()=>{window.removeEventListener('scroll',update);window.removeEventListener('resize',update)}
+    return()=>{if(frame)cancelAnimationFrame(frame);window.removeEventListener('scroll',update);window.removeEventListener('resize',update)}
   },[])
   return <div className="marketing-site">
     <header className="marketing-header">
@@ -54,9 +59,9 @@ export default function MarketingSite(){
           <div className="flight-sky"/><div className="flight-clouds cloud-a"/><div className="flight-clouds cloud-b"/>
           <div className="flight-grid" aria-hidden="true"><i/><i/><i/><span>ENGINEERING CONTROL / TRAINING / EVIDENCE</span></div>
           <p className="flight-kicker">AUSTRALIAN AVIATION · TRAINING CONTROL</p>
-          <div className="flight-wordmark"><img src="/brand/aviation-aligned-logo-transparent.png" alt="Aviation Aligned"/><span>Training aligned to the operation.</span></div>
-          <div className="flight-aircraft flight-helicopter"><img src="/campaign/h145-hero.png" alt="H145 helicopter in flight"/><i className="rotor rotor-main" aria-hidden="true"/></div>
-          <div className="flight-aircraft flight-plane"><img src="/campaign/regional-aircraft-hero.png" alt="Regional aircraft in flight"/><i className="rotor propeller propeller-left" aria-hidden="true"/><i className="rotor propeller propeller-right" aria-hidden="true"/></div>
+          <div className="flight-wordmark"><img src="/brand/aviation-aligned-logo-primary-transparent.webp" width="700" height="585" decoding="async" alt="Aviation Aligned"/></div>
+          <img className="flight-aircraft flight-helicopter" src="/campaign/h145-flight-motion.webp" width="1536" height="1024" decoding="async" fetchPriority="high" alt="H145 helicopter in flight"/>
+          <img className="flight-aircraft flight-plane" src="/campaign/regional-jet-hero.webp" width="1536" height="1024" decoding="async" alt="Regional jet in flight"/>
           <div className="flight-manifesto"><h1>Control the requirement.<br/>Prove the result.</h1><p>Aviation Aligned connects people, operational roles, controlled source material and retained training evidence—without losing sight of how aviation actually works.</p><div className="marketing-actions"><a className="marketing-button" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17}/></a><a className="marketing-text-link" href="#product">Discover the platform</a></div></div>
           <div className="flight-scroll"><span>SCROLL TO ENTER</span><i/></div>
         </div>
