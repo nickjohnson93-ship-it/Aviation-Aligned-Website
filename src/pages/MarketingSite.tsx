@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, BookOpenCheck, Check, ChevronDown, FileCheck2, Layers3, Menu, Radar, ShieldCheck, X } from 'lucide-react'
 
 const portalUrl='https://portal.aviationaligned.com.au'
@@ -20,14 +20,27 @@ const faqs=[
 export default function MarketingSite(){
   const [menuOpen,setMenuOpen]=useState(false)
   const [openFaq,setOpenFaq]=useState(0)
+  const heroRef=useRef<HTMLElement>(null)
   useEffect(()=>{
     const previous=document.title
     document.title='Aviation Aligned | Training control and compliance evidence'
     return()=>{document.title=previous}
   },[])
+  useEffect(()=>{
+    const update=()=>{
+      const hero=heroRef.current
+      if(!hero)return
+      const rect=hero.getBoundingClientRect()
+      const travel=Math.max(1,hero.offsetHeight-window.innerHeight)
+      const progress=Math.min(1,Math.max(0,-rect.top/travel))
+      hero.style.setProperty('--flight-progress',String(progress))
+    }
+    update();window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update)
+    return()=>{window.removeEventListener('scroll',update);window.removeEventListener('resize',update)}
+  },[])
   return <div className="marketing-site">
     <header className="marketing-header">
-      <a className="marketing-brand" href="#top" aria-label="Aviation Aligned home"><img src="/brand/aviation-aligned-logo-reverse.jpg" alt="Aviation Aligned" /></a>
+      <a className="marketing-brand marketing-wordmark" href="#top" aria-label="Aviation Aligned home"><span>AVIATION</span><b>ALIGNED</b></a>
       <button className="marketing-menu" type="button" aria-expanded={menuOpen} aria-controls="marketing-navigation" onClick={()=>setMenuOpen(value=>!value)}>{menuOpen?<X/>:<Menu/>}<span>Menu</span></button>
       <nav id="marketing-navigation" className={menuOpen?'is-open':''} aria-label="Main navigation">
         <a href="#product" onClick={()=>setMenuOpen(false)}>Product</a><a href="#approach" onClick={()=>setMenuOpen(false)}>Compliance approach</a><a href="#implementation" onClick={()=>setMenuOpen(false)}>Implementation</a><a href="#roadmap" onClick={()=>setMenuOpen(false)}>Roadmap</a><a href="#faq" onClick={()=>setMenuOpen(false)}>FAQ</a>
@@ -36,19 +49,16 @@ export default function MarketingSite(){
     </header>
 
     <main id="top">
-      <section className="marketing-hero">
-        <div className="marketing-hero-copy">
-          <p className="marketing-eyebrow">AVIATION TRAINING CONTROL</p>
-          <h1>Training built around<br/>your operation.<br/><em>Evidence behind every result.</em></h1>
-          <p className="marketing-lede">Aviation Aligned shapes training around your divisions, roles and approved procedures — connecting your controlled manuals to role-relevant assessments, and every completion to retained, retrievable evidence. Built for small and medium Australian operators.</p>
-          <div className="marketing-actions"><a className="marketing-button" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17}/></a><a className="marketing-text-link" href="#product">See how it works</a></div>
-          <p className="marketing-note">Founder-led foundation implementations are being considered for a small number of Australian operators.</p>
-        </div>
-        <div className="marketing-radar" aria-label="Example training compliance overview">
-          <div className="radar-top"><span>TRAINING CONTROL</span><span className="live-dot">LIVE POSITION</span></div>
-          <div className="radar-main"><div className="radar-ring"><div><strong>94%</strong><span>controlled</span></div></div><div className="radar-metrics"><div><strong>42</strong><span>current</span></div><div><strong>4</strong><span>due soon</span></div><div><strong>2</strong><span>action required</span></div></div></div>
-          <div className="radar-list"><div><span>Flight operations</span><i className="wide"/></div><div><span>Engineering</span><i className="medium"/></div><div><span>Safety & management</span><i className="short"/></div></div>
-          <p>Illustrative interface · synthetic figures</p>
+      <section className="flight-story" ref={heroRef} aria-label="Aviation Aligned introduction">
+        <div className="flight-stage">
+          <div className="flight-sky"/><div className="flight-clouds cloud-a"/><div className="flight-clouds cloud-b"/>
+          <div className="flight-grid" aria-hidden="true"><i/><i/><i/><span>ENGINEERING CONTROL / TRAINING / EVIDENCE</span></div>
+          <p className="flight-kicker">AUSTRALIAN AVIATION · TRAINING CONTROL</p>
+          <div className="flight-wordmark"><strong>AVIATION</strong><b>ALIGNED</b><span>Training aligned to the operation.</span></div>
+          <img className="flight-aircraft flight-helicopter" src="/campaign/h145-hero.png" alt="H145 helicopter in flight"/>
+          <img className="flight-aircraft flight-plane" src="/campaign/regional-aircraft-hero.png" alt="Regional aircraft in flight"/>
+          <div className="flight-manifesto"><h1>Control the requirement.<br/>Prove the result.</h1><p>Aviation Aligned connects people, operational roles, controlled source material and retained training evidence—without losing sight of how aviation actually works.</p><div className="marketing-actions"><a className="marketing-button" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17}/></a><a className="marketing-text-link" href="#product">Discover the platform</a></div></div>
+          <div className="flight-scroll"><span>SCROLL TO ENTER</span><i/></div>
         </div>
       </section>
 
