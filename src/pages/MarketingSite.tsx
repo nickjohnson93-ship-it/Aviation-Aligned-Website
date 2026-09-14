@@ -54,9 +54,9 @@ export default function MarketingSite(){
           <div className="flight-sky"/><div className="flight-clouds cloud-a"/><div className="flight-clouds cloud-b"/>
           <div className="flight-grid" aria-hidden="true"><i/><i/><i/><span>ENGINEERING CONTROL / TRAINING / EVIDENCE</span></div>
           <p className="flight-kicker">AUSTRALIAN AVIATION · TRAINING CONTROL</p>
-          <div className="flight-wordmark"><strong>AVIATION</strong><b>ALIGNED</b><span>Training aligned to the operation.</span></div>
-          <img className="flight-aircraft flight-helicopter" src="/campaign/h145-hero.png" alt="H145 helicopter in flight"/>
-          <img className="flight-aircraft flight-plane" src="/campaign/regional-aircraft-hero.png" alt="Regional aircraft in flight"/>
+          <div className="flight-wordmark"><img src="/brand/aviation-aligned-logo-transparent.png" alt="Aviation Aligned"/><span>Training aligned to the operation.</span></div>
+          <div className="flight-aircraft flight-helicopter"><img src="/campaign/h145-hero.png" alt="H145 helicopter in flight"/><i className="rotor rotor-main" aria-hidden="true"/></div>
+          <div className="flight-aircraft flight-plane"><img src="/campaign/regional-aircraft-hero.png" alt="Regional aircraft in flight"/><i className="rotor propeller propeller-left" aria-hidden="true"/><i className="rotor propeller propeller-right" aria-hidden="true"/></div>
           <div className="flight-manifesto"><h1>Control the requirement.<br/>Prove the result.</h1><p>Aviation Aligned connects people, operational roles, controlled source material and retained training evidence—without losing sight of how aviation actually works.</p><div className="marketing-actions"><a className="marketing-button" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17}/></a><a className="marketing-text-link" href="#product">Discover the platform</a></div></div>
           <div className="flight-scroll"><span>SCROLL TO ENTER</span><i/></div>
         </div>
