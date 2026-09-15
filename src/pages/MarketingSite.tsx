@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, BookOpenCheck, Check, ChevronDown, FileCheck2, Layers3, Menu, Radar, ShieldCheck, X } from 'lucide-react'
+import FlightHelicopter from '../components/FlightHelicopter'
 
 const portalUrl='https://portal.aviationaligned.com.au'
 
@@ -58,9 +59,10 @@ export default function MarketingSite(){
         <div className="flight-stage">
           <div className="flight-sky"/><div className="flight-clouds cloud-a"/><div className="flight-clouds cloud-b"/>
           <div className="flight-grid" aria-hidden="true"><i/><i/><i/><span>ENGINEERING CONTROL / TRAINING / EVIDENCE</span></div>
+          <div className="flight-target" aria-hidden="true"><i/><i/></div>
           <p className="flight-kicker">AUSTRALIAN AVIATION · TRAINING CONTROL</p>
           <div className="flight-wordmark"><img src="/brand/aviation-aligned-logo-primary-transparent.webp" width="700" height="585" decoding="async" alt="Aviation Aligned"/></div>
-          <img className="flight-aircraft flight-helicopter" src="/campaign/h145-flight-motion.webp" width="1536" height="1024" decoding="async" fetchPriority="high" alt="H145 helicopter in flight"/>
+          <FlightHelicopter/>
           <img className="flight-aircraft flight-plane" src="/campaign/regional-jet-hero.webp" width="1536" height="1024" decoding="async" alt="Regional jet in flight"/>
           <div className="flight-manifesto"><h1>Control the requirement.<br/>Prove the result.</h1><p>Aviation Aligned connects people, operational roles, controlled source material and retained training evidence—without losing sight of how aviation actually works.</p><div className="marketing-actions"><a className="marketing-button" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17}/></a><a className="marketing-text-link" href="#product">Discover the platform</a></div></div>
           <div className="flight-scroll"><span>SCROLL TO ENTER</span><i/></div>
