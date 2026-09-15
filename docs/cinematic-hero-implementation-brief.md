@@ -29,7 +29,9 @@ The supplied helicopter recording is the visual reference for flight attitude an
 - Render the H145 body and five-blade photographic rotor into one canvas each frame.
 - Use a rotorless, transparent H145 body captured in forward-flight attitude.
 - Flip the source airframe so its nose faces screen-right, matching its travel direction.
-- Rotate actual blade imagery through a compressed perspective transform with multiple low-alpha shutter samples.
+- Remove the complete upper rotor head from the body image, leaving only the stationary fuselage-side mounting flange.
+- Cycle the upper hub, blade grips and actual blade imagery through 16 deterministic rotor phases in a compressed perspective plane.
+- Render multiple low-alpha shutter samples behind each phase, while keeping the rotating mechanical head sharper so its progression remains visible.
 - Stop continuous rotation for `prefers-reduced-motion`, but keep the helicopter visible so accessibility settings never produce an empty hero.
 - Use one shared set of target coordinates for the circle and logo; scale the logo uniformly only.
 

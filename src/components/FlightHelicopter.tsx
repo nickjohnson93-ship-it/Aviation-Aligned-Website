@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react'
 
-const BODY_SRC='/campaign/h145-forward-flight-v3.png'
+const BODY_SRC='/campaign/h145-forward-flight-rotorless-v4.png'
 const ROTOR_SRC='/campaign/h145-five-blade-rotor-v2.png'
 const CANVAS_WIDTH=1800
 const CANVAS_HEIGHT=1100
+const ROTOR_PHASES=16
+const PHASE_ANGLE=(Math.PI*2)/ROTOR_PHASES
 
 function loadImage(src:string){
   return new Promise<HTMLImageElement>((resolve,reject)=>{
@@ -47,20 +49,36 @@ export default function FlightHelicopter(){
       // elliptical plane and phase-changing shutter samples match a real H145
       // rotor seen from a low, front three-quarter camera position.
       const hubX=1048
-      const hubY=216
+      const hubY=252
       const rotorDiameter=1690
-      const angle=reducedMotion.matches?.18:time*.039
+      const continuousAngle=reducedMotion.matches?.18:time*.0419
+      const angle=reducedMotion.matches?.18:Math.floor(continuousAngle/PHASE_ANGLE)*PHASE_ANGLE
       context.save()
       context.translate(hubX,hubY)
       context.transform(1,0,-.08,.205,0,0)
-      const samples=reducedMotion.matches?1:18
+      const samples=reducedMotion.matches?1:12
       for(let sample=samples-1;sample>=0;sample--){
         context.save()
-        context.rotate(angle-sample*.026)
-        context.globalAlpha=sample===0?.15:.024
+        context.rotate(angle-sample*.033)
+        context.globalAlpha=sample===0?.13:.03
         context.drawImage(rotor,-rotorDiameter/2,-rotorDiameter/2,rotorDiameter,rotorDiameter)
         context.restore()
       }
+      context.restore()
+
+      // The detailed upper head is sampled from the same rotating frame as the
+      // blades. Keeping it sharper than the shutter trail makes the blade grips
+      // visibly advance through 16 discrete phases instead of orbiting a frozen
+      // rotor head baked into the fuselage.
+      context.save()
+      context.translate(hubX,hubY)
+      context.transform(1,0,-.08,.205,0,0)
+      context.rotate(angle)
+      context.beginPath()
+      context.arc(0,0,112,0,Math.PI*2)
+      context.clip()
+      context.globalAlpha=.96
+      context.drawImage(rotor,-rotorDiameter/2,-rotorDiameter/2,rotorDiameter,rotorDiameter)
       context.restore()
 
       if(visible&&!reducedMotion.matches)animationFrame=requestAnimationFrame(draw)
