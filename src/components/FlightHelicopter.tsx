@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const BODY_SRC='/campaign/h145-body-v2.png'
+const BODY_SRC='/campaign/h145-forward-flight-v3.png'
 const ROTOR_SRC='/campaign/h145-five-blade-rotor-v2.png'
 const CANVAS_WIDTH=1800
 const CANVAS_HEIGHT=1100
@@ -37,23 +37,27 @@ export default function FlightHelicopter(){
 
       context.globalAlpha=1
       context.globalCompositeOperation='source-over'
+      context.save()
+      context.translate(CANVAS_WIDTH,0)
+      context.scale(-1,1)
       context.drawImage(body,132,62,1536,1024)
+      context.restore()
 
       // The rotor is rendered as part of the same aircraft canvas. Its shallow
       // elliptical plane and phase-changing shutter samples match a real H145
       // rotor seen from a low, front three-quarter camera position.
-      const hubX=976
-      const hubY=222
+      const hubX=1048
+      const hubY=216
       const rotorDiameter=1690
-      const angle=reducedMotion.matches?.18:time*.0408
+      const angle=reducedMotion.matches?.18:time*.039
       context.save()
       context.translate(hubX,hubY)
       context.transform(1,0,-.08,.205,0,0)
-      const samples=reducedMotion.matches?1:8
+      const samples=reducedMotion.matches?1:18
       for(let sample=samples-1;sample>=0;sample--){
         context.save()
-        context.rotate(angle-sample*.035)
-        context.globalAlpha=sample===0?.56:.055
+        context.rotate(angle-sample*.026)
+        context.globalAlpha=sample===0?.15:.024
         context.drawImage(rotor,-rotorDiameter/2,-rotorDiameter/2,rotorDiameter,rotorDiameter)
         context.restore()
       }
