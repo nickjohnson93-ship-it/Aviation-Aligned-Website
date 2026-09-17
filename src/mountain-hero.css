@@ -1,0 +1,53 @@
+/* Shared landscape for the procedural aircraft, light-twin and image fallback. */
+.flight-stage { --plane-travel: max(0, calc((var(--flight-progress) - .16) * .766667)); }
+.flight-stage .flight-wordmark { opacity: clamp(0, calc((var(--flight-progress) - .74) * 20), 1); }
+.flight-stage .flight-plane {
+  left: 50%;
+  top: 50%;
+  opacity: min(clamp(0, calc((var(--flight-progress) - .16) * 8), 1), clamp(0, calc((.76 - var(--flight-progress)) / .12), 1));
+  transform: translate(calc(-50% - var(--plane-travel) * 16vw), calc(-50% + var(--plane-travel) * 14vh)) scale(calc(.10 + var(--plane-travel) * .72)) rotate(-2deg);
+}
+.flight-terrain {
+  position: absolute;
+  inset: -3%;
+  z-index: -4;
+  pointer-events: none;
+  background: url('/campaign/mountain-flight-panorama-v1.png') center 54% / cover no-repeat;
+  opacity: clamp(0, calc((.80 - var(--flight-progress)) * 5), 1);
+  transform: translate3d(calc(var(--flight-progress) * -2%), calc(var(--flight-progress) * 1.5%), 0) scale(calc(1.02 + var(--flight-progress) * .045));
+}
+.flight-terrain-light {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(5, 25, 44, .24), transparent 32%, rgba(12, 33, 51, .08)), radial-gradient(ellipse at 78% 24%, rgba(255, 224, 168, .18), transparent 45%);
+  opacity: clamp(0, calc((.80 - var(--flight-progress)) * 5), 1);
+}
+.flight-stage .flight-clouds {
+  inset: 64% -12% -18%;
+  opacity: calc(.22 - var(--flight-progress) * .12);
+}
+.flight-stage .cloud-b { inset: 78% -20% -24%; opacity: .12; }
+.flight-kicker { text-shadow: 0 2px 14px rgba(3, 20, 35, .65); }
+.flight-scroll { text-shadow: 0 2px 10px rgba(3, 20, 35, .7); }
+@media (max-width: 760px) {
+  .flight-stage .flight-plane {
+    transform: translate(calc(-50% - var(--plane-travel) * 20vw), calc(-50% + var(--plane-travel) * 12vh)) scale(calc(.14 + var(--plane-travel) * .52));
+  }
+  .flight-terrain { background-position: 62% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flight-stage .flight-wordmark { opacity: 1; }
+  .flight-stage .flight-plane { display: none; }
+  .flight-terrain { transform: none; opacity: .72; }
+  .flight-terrain-light { opacity: 1; }
+  .flight-stage::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 25%, rgba(244, 242, 235, .88) 62%, #f4f2eb 85%);
+  }
+}

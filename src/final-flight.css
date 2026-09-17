@@ -1,0 +1,54 @@
+/* Final sequence: hold the plane's close approach, then a crisp vector logo
+   at centre, followed by a separate slow scale-and-dock phase. */
+.flight-story{height:640vh}
+.flight-stage .flight-plane{aspect-ratio:3/2;left:50%;top:50%;width:min(86vw,1260px);height:auto;opacity:var(--plane-opacity,0);transform:translate(calc(-50% + var(--plane-x,0)*1vw),calc(-50% + var(--plane-y,0)*1vh)) scale(var(--plane-scale,.11)) rotate(calc(var(--plane-roll,-2)*1deg));transform-origin:center}
+.flight-plane>img{display:block;height:auto;max-width:none;width:100%}
+.plane-engine-motion{height:100%;inset:0;position:absolute;width:100%}
+.plane-fan{animation:plane-fan-turn 1.15s linear infinite;animation-play-state:var(--fan-play-state,paused);transform-box:fill-box;transform-origin:center}
+.plane-fan.fan-1{animation-duration:1.32s}
+@keyframes plane-fan-turn{to{transform:rotate(360deg)}}
+.flight-stage::before{background:#f4f2eb;content:'';inset:0;opacity:var(--brand-background-opacity,0);pointer-events:none;position:absolute;z-index:-2}
+.flight-stage .flight-wordmark{--logo-dock:var(--logo-dock-progress,0);left:calc(50% + (var(--target-x) - 50%)*var(--logo-dock));top:calc(50% + (var(--target-y) - 50%)*var(--logo-dock));width:var(--logo-width,min(62vw,760px));opacity:var(--logo-opacity,0);transform:translate(-50%,-50%);pointer-events:none}
+.flight-stage .flight-wordmark img{aspect-ratio:256/214;width:100%;height:auto;filter:none;object-fit:contain}
+.flight-stage .flight-terrain,.flight-stage .flight-terrain-light{opacity:var(--terrain-opacity,1)}
+.flight-stage .flight-grid{opacity:var(--grid-opacity,0)}
+.flight-stage .flight-target{opacity:var(--target-opacity,0)}
+.flight-stage .flight-manifesto{opacity:var(--manifesto-opacity,0);transform:none}
+.flight-stage .flight-kicker{opacity:calc(1 - var(--brand-background-opacity,0))}
+@media(max-width:760px){.flight-story{height:620vh}.flight-stage .flight-plane{width:155vw}.flight-stage .flight-wordmark{width:var(--logo-width,79vw)}}
+@media(prefers-reduced-motion:reduce){
+ .flight-story{height:auto}.flight-stage .flight-plane,.plane-engine-motion{display:none}.plane-fan{animation:none}
+ .flight-stage .flight-wordmark{left:var(--target-x);top:var(--target-y);width:clamp(300px,34vw,500px);opacity:1;transform:translate(-50%,-50%) scale(.52)}
+ .flight-stage .flight-terrain{opacity:.72}.flight-stage .flight-terrain-light{opacity:1}.flight-stage .flight-grid{opacity:.22}.flight-stage .flight-target{opacity:.3}.flight-stage .flight-manifesto{opacity:1}
+ .flight-stage::before{display:none}
+}
+@media(max-width:760px) and (prefers-reduced-motion:reduce){.flight-stage .flight-wordmark{width:clamp(180px,52vw,248px)}}
+.marketing-skip-link{background:#f4f2eb;color:#061d33;left:16px;padding:12px 18px;position:fixed;top:12px;transform:translateY(-160%);z-index:110}
+.marketing-skip-link:focus{transform:none}
+.marketing-site{--mk-muted:#5b6878}
+.marketing-section:not(.evidence-section) em{color:#876815}
+.marketing-section .marketing-eyebrow{color:#806214}
+.evidence-section .marketing-eyebrow{color:var(--mk-gold)}
+.marketing-site :is(a,button):focus-visible{outline:3px solid #876815;outline-offset:5px}
+.marketing-header :is(a,button):focus-visible,.marketing-footer a:focus-visible{outline-color:var(--mk-gold)}
+.marketing-site :is(section,main)[id]{scroll-margin-top:100px}
+.marketing-header nav .marketing-mobile-account{display:none}
+.contact-section .marketing-button.light{background:#061d33!important;border-color:#061d33;color:#fff!important}
+.contact-section .marketing-button.light:hover{background:#123650!important}
+.contact-section :is(a,button):focus-visible{outline-color:#061d33}
+.evidence-panel li svg{flex:0 0 16px}
+.marketing-footer img{aspect-ratio:256/214;height:auto}
+@media(max-width:1050px){
+ .marketing-header{grid-template-columns:1fr auto auto;gap:22px}
+ .marketing-menu{align-items:center;background:none;border:0;color:#fff;display:flex;font:600 .8rem 'DM Sans',sans-serif;gap:8px;justify-self:end;min-height:44px;padding:8px}
+ .marketing-menu svg{height:19px;width:19px}
+ .marketing-header nav.is-open{background:var(--mk-navy);border-top:1px solid #294257;display:grid;gap:0;left:0;padding:12px clamp(24px,5vw,76px) 24px;position:absolute;right:0;top:84px;justify-content:stretch}
+ .marketing-header nav.is-open a{padding:12px 0}
+}
+@media(max-width:760px){
+ .flight-grid span{display:none}
+ .marketing-header{grid-template-columns:1fr auto;gap:12px}
+ .marketing-header nav.is-open{padding:12px 20px 24px;top:70px}
+ .marketing-header nav .marketing-mobile-account{display:block}
+ .marketing-header nav .marketing-mobile-account[href$="/login"]{border-top:1px solid #294257}
+}

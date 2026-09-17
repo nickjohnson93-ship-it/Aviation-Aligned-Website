@@ -1,0 +1,592 @@
+{
+  "passed": true,
+  "format": "glTF 2.0 GLB",
+  "originalBinaryPrefixUnchanged": true,
+  "originalBinByteLength": 1653376,
+  "originalBinSha256": "222341e941bb3ba2b22dc5b7d22f00c88a76c266645da43af76374da4576c3ad",
+  "sourceGlbSha256": "8b4f44ff5e99a2ec367510b6d730d0d925bad08736da11db90d9a1b4d0bb750d",
+  "outputGlbSha256": "1a74db3784e1ce30ebe45e1c006349e46858998c0e17010bbdf9c37491becb4c",
+  "correspondingRefinementSource": "aircraft-refinement-source-v6.zip",
+  "outputByteLength": 5054660,
+  "appendedBinaryBytes": 3265960,
+  "originalMeshesMaterialsAccessorsImagesUnchanged": true,
+  "rotorSubtreesUnchanged": true,
+  "protectedRotorNodes": 31,
+  "protectedRotorMeshes": 29,
+  "protectedRotorMaterials": 4,
+  "protectedRotorAccessors": 109,
+  "sourceAnimationClips": 0,
+  "rotorAnimationNote": "The source has runtime rotor motion/blur; matching website renderer must accompany this native mesh asset.",
+  "renderTriangles": 51718,
+  "renderPrimitives": 97,
+  "embeddedImages": [
+    {
+      "name": "paint-antenna",
+      "byteLength": 3620,
+      "sha256": "051db79660cf909d63bd480d9eabcf856b2d778f03a8d98efb2528600171c91a"
+    },
+    {
+      "name": "normalmap",
+      "byteLength": 643820,
+      "sha256": "38afb1e011a13168b64734adf46c959e9f9ffa0ed539b73d286ecb1d0e8504d4"
+    },
+    {
+      "name": "paint-backdoor.L",
+      "byteLength": 5986,
+      "sha256": "332d9934c3df604fc9afabfefaf039af7e1b87930477720a6cbd902b90553bf0"
+    },
+    {
+      "name": "paint-backdoor.R",
+      "byteLength": 5856,
+      "sha256": "0ce70926303fb46fb8b940e7602a29d6accb9cc3f915c26d732b7cfd8c9024b8"
+    },
+    {
+      "name": "paint-frontdoor.L",
+      "byteLength": 5511,
+      "sha256": "e007d0bee036f7dd3d72cdf5adbbc66897960ff536c28257763928242e751455"
+    },
+    {
+      "name": "paint-frontdoor.R",
+      "byteLength": 5354,
+      "sha256": "633eb2e5acb9d73692c57917396588816174c47cd5710ae88ae641bfdccbd31a"
+    },
+    {
+      "name": "paint-frontlight",
+      "byteLength": 16154,
+      "sha256": "fd258d2ee3bb3a2c26541db99f85e87a543ac569db915b3ce4674c4bd31352af"
+    },
+    {
+      "name": "paint-fuselage",
+      "byteLength": 98240,
+      "sha256": "9b0bdbfda865b8a6b038118376adb8d0ef0e9fe7aafdc1bf370b34241321dda2"
+    },
+    {
+      "name": "paint-rotorcap",
+      "byteLength": 5359,
+      "sha256": "94feff1d32bd8321eefc1c1c9b2a61ac49f4fb66530907265f1bfc7d142f50f3"
+    },
+    {
+      "name": "paint-nonIBF",
+      "byteLength": 9783,
+      "sha256": "112d22e64096bffb7ff21fe680d25b5c2c158ef19d76fc2ebd7aae65c47cc16a"
+    },
+    {
+      "name": "paint-nosefl",
+      "byteLength": 5198,
+      "sha256": "bb2dd67dcbf1f987b0fd1cbc930ee69834cd9999c70920740229d7e21d27746c"
+    },
+    {
+      "name": "paint-Plane",
+      "byteLength": 4549,
+      "sha256": "5b065c22c57403986fb4790fce0e6405dda1412e4dff33c3aaede585f2caad72"
+    },
+    {
+      "name": "paint-reardoor_win.L",
+      "byteLength": 6483,
+      "sha256": "723188f86e957c0c0ec232f645215ef1d9bab1ec8ac93dbf86bd53e9a9e073b5"
+    },
+    {
+      "name": "paint-reardoor_win.R",
+      "byteLength": 5893,
+      "sha256": "d7877e4e8aa67bd5f05baf2927f7a9326b8939dabc35eca3b6e0017b53722616"
+    },
+    {
+      "name": "paint-SLLight_Cover.L",
+      "byteLength": 4107,
+      "sha256": "bbe7eab2c32356eed4189cebe7b9272b87eade480c3dc52da5708c84ceb265db"
+    },
+    {
+      "name": "paint-SLLight_Cover.R",
+      "byteLength": 4137,
+      "sha256": "58d57c19c6fffc22a238006c468d652d9f3eb04783718765511c31c4ee4e500e"
+    },
+    {
+      "name": "paint-triangle",
+      "byteLength": 4455,
+      "sha256": "00613966e2293d04709ae109abbb984c30b65f835fae50a63b0eb2d5181925a1"
+    },
+    {
+      "name": "paint-wirecutter_down",
+      "byteLength": 4651,
+      "sha256": "842be6a08ae3f1526036f1dc02456ca0a626a66e80d662be55976ca2b1cee167"
+    },
+    {
+      "name": "paint-wirecutter_up",
+      "byteLength": 4449,
+      "sha256": "cda2a057560c6eed1a51e7ebe946f7ccde706e01ad6778e2c95966256bcdd464"
+    }
+  ],
+  "appendedNodes": 24,
+  "appendedMeshes": 49,
+  "appendedMaterials": 65,
+  "appendedAccessors": 168,
+  "reusedAccessors": 40,
+  "hiddenOriginalNodes": [
+    "antenna",
+    "Cabin floor",
+    "Cabin seat back",
+    "Cabin seat back.001",
+    "Cabin seat back.002",
+    "Cabin seat back.003",
+    "Cabin seat back.004",
+    "Cabin seat back.005",
+    "Cabin seat base",
+    "Cabin seat base.001",
+    "Cabin seat base.002",
+    "Cabin seat base.003",
+    "Cabin seat base.004",
+    "Cabin seat base.005",
+    "engine",
+    "highskid",
+    "Instrument coaming",
+    "standardstep",
+    "wirecutter_down"
+  ],
+  "refinedOriginalNodes": [
+    "backdoor.L",
+    "backdoor.R",
+    "backdoorglas.L",
+    "backdoorglas.R",
+    "backdoorhandle.L",
+    "backdoorhandle.R",
+    "Cylinder.001",
+    "exhaust",
+    "frontdoor.L",
+    "frontdoor.R",
+    "frontdoorglas.L",
+    "frontdoorglas.R",
+    "frontdoorhandle.L",
+    "frontdoorhandle.R",
+    "frontlight",
+    "fuselage",
+    "glas",
+    "nonIBF",
+    "nosefl",
+    "Plane",
+    "reardoor_win.L",
+    "reardoor_win.R",
+    "rearwin.L",
+    "rearwin.R",
+    "SLLight_Cover.L",
+    "SLLight_Cover.R",
+    "triangle",
+    "windscreen_tri",
+    "wiper1",
+    "wiperblade",
+    "wirecutter_up"
+  ],
+  "productionRefinement": 6,
+  "sourcePath": "C:\\Users\\NickJohnson\\.codex\\visualizations\\2026\\09\\16\\01a0a92d-35c7-7c53-b80c-014b3d1b5895\\aircraft-refinement-v3\\public\\campaign\\light-twin\\light-twin-web.glb",
+  "outputPath": "C:\\Users\\NickJohnson\\.codex\\visualizations\\2026\\09\\16\\01a0a92d-35c7-7c53-b80c-014b3d1b5895\\aircraft-refinement-v3\\public\\campaign\\light-twin\\light-twin-refined-v6.glb",
+  "warnings": [],
+  "productionGeometryQA": {
+    "triangles": 51718,
+    "meshes": 78,
+    "nonFinite": 0,
+    "degenerate": 0,
+    "normalsInvalid": 0,
+    "skinParts": 13,
+    "skinTriangles": 19054,
+    "collapsedFacesRemoved": 49,
+    "rotorsExcluded": true,
+    "paintBoundary": "geometry material slots, existing UVs interpolated"
+  },
+  "protectedRuntimeHashes": {
+    "LightTwinScene": "61eb99fd4d663c62946059fc595a3edf406adad77f8be43013fffc25445fcef0",
+    "choreography": "aa899f3e605fa01685863ebea36d79083cbb515ebb8f68c12838ff21c147666f"
+  },
+  "protectedRuntimeAudit": {
+    "passed": true,
+    "normalization": "line endings only (LF)",
+    "protectedSpans": [
+      {
+        "id": "renderer-camera-lighting-samples-and-initial-angles",
+        "file": "scene",
+        "baselineSha256": "38233b1c2ad0970eb6cdcbb32d2d7e41440a6e927509630114cc102dd774af94",
+        "currentSha256": "38233b1c2ad0970eb6cdcbb32d2d7e41440a6e927509630114cc102dd774af94",
+        "normalizedUtf8Bytes": 1989,
+        "exactMatch": true
+      },
+      {
+        "id": "pose-main-tail-shutter-equations-and-canvas-opacity",
+        "file": "scene",
+        "baselineSha256": "03d82c8ac9b58313f7045c438a85cd805efcfdabfadbfe52ea1c5d7daa436b1d",
+        "currentSha256": "03d82c8ac9b58313f7045c438a85cd805efcfdabfadbfe52ea1c5d7daa436b1d",
+        "normalizedUtf8Bytes": 1151,
+        "exactMatch": true
+      },
+      {
+        "id": "rotor-tick-speeds-dt-cap-and-lifecycle",
+        "file": "scene",
+        "baselineSha256": "1a75f36fc1104014e94e5865e0b26a84bb261ec20bcd713b029c046b436bc3ca",
+        "currentSha256": "1a75f36fc1104014e94e5865e0b26a84bb261ec20bcd713b029c046b436bc3ca",
+        "normalizedUtf8Bytes": 1470,
+        "exactMatch": true
+      },
+      {
+        "id": "environment-map-loading",
+        "file": "scene",
+        "baselineSha256": "c435e447e8155fcd781df6e609b43caf8391f411d03fb19cf9b175082e7255a4",
+        "currentSha256": "c435e447e8155fcd781df6e609b43caf8391f411d03fb19cf9b175082e7255a4",
+        "normalizedUtf8Bytes": 280,
+        "exactMatch": true
+      },
+      {
+        "id": "protected-rotor-material-tuning",
+        "file": "loader",
+        "baselineSha256": "d56ffed878b4549de1c4529a0d8e731f5739653b201459081dd6d0790dcb796a",
+        "currentSha256": "d56ffed878b4549de1c4529a0d8e731f5739653b201459081dd6d0790dcb796a",
+        "normalizedUtf8Bytes": 1583,
+        "exactMatch": true
+      },
+      {
+        "id": "rotor-sampling-geometry-opacity-and-builder-calls",
+        "file": "loader",
+        "baselineSha256": "9afea9b05715aab5f8ae385ad8c8bf49e7536b016ea45308e600fd5279e96c5f",
+        "currentSha256": "9afea9b05715aab5f8ae385ad8c8bf49e7536b016ea45308e600fd5279e96c5f",
+        "normalizedUtf8Bytes": 1817,
+        "exactMatch": true
+      },
+      {
+        "id": "rotor-shadow-and-frustum-policy",
+        "file": "loader",
+        "baselineSha256": "0f03458b4b22dda709fb5f98b93ddb7a0fb2ad2c818ae0b639fe705c5fbc7d00",
+        "currentSha256": "0f03458b4b22dda709fb5f98b93ddb7a0fb2ad2c818ae0b639fe705c5fbc7d00",
+        "normalizedUtf8Bytes": 414,
+        "exactMatch": true
+      },
+      {
+        "id": "rotor-instance-matrix-updates",
+        "file": "loader",
+        "baselineSha256": "30bf473938b5ff8d5732d9f10b1ca6874a12933629d2eec5c70d910f142ca80f",
+        "currentSha256": "30bf473938b5ff8d5732d9f10b1ca6874a12933629d2eec5c70d910f142ca80f",
+        "normalizedUtf8Bytes": 264,
+        "exactMatch": true
+      }
+    ],
+    "choreography": {
+      "baselineSha256": "69c72773f90d4737a634d2d94cbee88283ea52b503b422210b12c0fa05a1ceeb",
+      "currentSha256": "69c72773f90d4737a634d2d94cbee88283ea52b503b422210b12c0fa05a1ceeb",
+      "exactMatch": true
+    },
+    "note": "Original rotor appearance, sampling, timing and lighting spans are exact; optional airflow/UI changes lie outside these spans."
+  },
+  "glazing": {
+    "glazingRefinementVersion": 1,
+    "sourceMeshes": 8,
+    "closedLoops": 18,
+    "loopVertexCounts": [
+      28,
+      27,
+      22,
+      23,
+      13,
+      11,
+      10,
+      24,
+      22,
+      13,
+      24,
+      24,
+      26,
+      25,
+      20,
+      21,
+      49,
+      50
+    ],
+    "sourceLoopVertexCounts": [
+      39,
+      39,
+      37,
+      44,
+      33,
+      23,
+      23,
+      44,
+      37,
+      33,
+      24,
+      24,
+      33,
+      33,
+      27,
+      27,
+      54,
+      55
+    ],
+    "contourTolerance": 0.0015,
+    "smoothedVertices": 4843,
+    "sealVertices": 2592,
+    "sealTriangles": 5184,
+    "sealRadius": 0.006,
+    "sealOffset": 0.0025,
+    "invalidVertices": 0,
+    "invalidFaces": 0,
+    "nonManifoldEdges": 0,
+    "skippedComponents": 0,
+    "finite": true
+  },
+  "cockpit": {
+    "floorRefinement": {
+      "refinementVersion": 1,
+      "matchedOriginalPart": true,
+      "sourceNodeAndGeometryRetained": true,
+      "originalFloorMaterialPreserved": true,
+      "floorTopBottomUnchanged": true,
+      "verifiedBothHullSides": true,
+      "clearanceTargetMetres": 0.018,
+      "sourceNode": "Cabin_floor",
+      "sourceBounds": {
+        "min": [
+          -1.25,
+          1.0550000220537186,
+          -0.675000011920929
+        ],
+        "max": [
+          2.450000047683716,
+          1.1450000256299973,
+          0.675000011920929
+        ]
+      },
+      "sourceTriangles": 12,
+      "insetBounds": {
+        "min": [
+          -1.0700000524520874,
+          1.0550000667572021,
+          -0.6570000052452087
+        ],
+        "max": [
+          2.450000047683716,
+          1.1449999809265137,
+          0.6570000052452087
+        ]
+      },
+      "replacementTriangles": 124,
+      "minimumMeasuredClearanceMetres": 0.017999999999999988,
+      "hullCrossSectionSamples": 8388
+    },
+    "detailTriangles": 4988,
+    "originalSeatNodesRetained": 12,
+    "interiorReferenceLimited": true
+  },
+  "panels": {
+    "panelQA": {
+      "sourceTopologyOuterContoursOnly": true,
+      "noWindowHoleOutlines": true,
+      "originalGeometryUvsHardwareAndRotorsUnchanged": true,
+      "gapWidthMm": 3.6,
+      "maximumCornerGapWidthMm": 3.96,
+      "surfaceOffsetMm": 0.9,
+      "fastenerRadiusMm": 2.75,
+      "fastenerDepthMm": 1.5,
+      "fastenerPlacement": "Lower and aft outer door skin only; no decorative all-around zipper",
+      "hingePolicy": "Existing modeled handles and hinge hardware preserved; no unverified hardware invented",
+      "drawCalls": 2,
+      "triangles": 3160,
+      "panels": [
+        {
+          "panel": "backdoorL",
+          "availableLoops": 3,
+          "outerVertices": 56,
+          "area": 1.099216994704351,
+          "perimeter": 4.128999712961523,
+          "flushFasteners": 19
+        },
+        {
+          "panel": "backdoorR",
+          "availableLoops": 3,
+          "outerVertices": 56,
+          "area": 1.099216994704351,
+          "perimeter": 4.128999712961524,
+          "flushFasteners": 19
+        },
+        {
+          "panel": "frontdoorL",
+          "availableLoops": 5,
+          "outerVertices": 55,
+          "area": 1.063439063452698,
+          "perimeter": 4.15602258950437,
+          "flushFasteners": 21
+        },
+        {
+          "panel": "frontdoorR",
+          "availableLoops": 5,
+          "outerVertices": 55,
+          "area": 1.063439063452698,
+          "perimeter": 4.15602258950437,
+          "flushFasteners": 21
+        },
+        {
+          "panel": "nonIBF",
+          "availableLoops": 7,
+          "outerVertices": 78,
+          "area": 1.2056317103930456,
+          "perimeter": 8.112473856517028,
+          "flushFasteners": 0
+        }
+      ],
+      "skipped": []
+    }
+  },
+  "intakes": {
+    "sourceContours": 3,
+    "intakeMouths": 2,
+    "sourceMouthVertices": [
+      12,
+      12
+    ],
+    "depth": 0.1,
+    "lipRadius": 0.008,
+    "detailTriangles": 1639,
+    "shoulderBaffleRetained": true,
+    "originalEngineNodeRetained": true,
+    "rotorSubtreesUntouched": true,
+    "sourceDerivedMouths": true
+  },
+  "brand": {
+    "brandQA": {
+      "reference": "public/brand/aviation-aligned-logo-reverse.jpg",
+      "monogramOnly": true,
+      "colors": "reverse white / champagne gold",
+      "centerXY": [
+        -0.95,
+        2.69
+      ],
+      "widthMetres": 0.36,
+      "offsetMm": 1.2,
+      "placement": "aft navy cowling at user-indicated shoulder location",
+      "surfaceClipped": true,
+      "sideTriangleCounts": {
+        "left": 55,
+        "right": 66
+      },
+      "drawCalls": 2
+    }
+  },
+  "lowerFuselage": {
+    "refinementVersion": 2,
+    "matchedOriginalPart": true,
+    "hiddenSourceParts": [
+      {
+        "name": "standardstep",
+        "sourceRole": "Source paired coarse boarding-step wedges below cabin doors",
+        "vertices": 288,
+        "triangles": 96,
+        "airframeBounds": {
+          "min": [
+            -0.6913099884986877,
+            0.7450060248374939,
+            -0.9056699872016907
+          ],
+          "max": [
+            1.9727660417556763,
+            0.9743769764900208,
+            0.9100720286369324
+          ]
+        },
+        "beforeVisible": true,
+        "afterVisible": false
+      },
+      {
+        "name": "wirecutter_down",
+        "sourceRole": "User-requested blade-like lower nose attachment and its small braces",
+        "vertices": 75,
+        "triangles": 25,
+        "airframeBounds": {
+          "min": [
+            2.6499099731445312,
+            0.9768109917640686,
+            -0.09637799859046936
+          ],
+          "max": [
+            3.175762891769409,
+            1.1886600255966187,
+            0.09584800153970718
+          ]
+        },
+        "beforeVisible": true,
+        "afterVisible": false
+      }
+    ],
+    "removedRenderTriangles": 121,
+    "geometryMaterialsHierarchyAndTransformsUnchanged": true,
+    "skidsAerialsWipersAndRotorsPreserved": true,
+    "hullNoseUpperCuttersAndLightsPreserved": true,
+    "noNewGeometry": true,
+    "interiorFloor": {
+      "refinementVersion": 1,
+      "matchedOriginalPart": true,
+      "sourceNodeAndGeometryRetained": true,
+      "originalFloorMaterialPreserved": true,
+      "floorTopBottomUnchanged": true,
+      "verifiedBothHullSides": true,
+      "clearanceTargetMetres": 0.018,
+      "sourceNode": "Cabin_floor",
+      "sourceBounds": {
+        "min": [
+          -1.25,
+          1.0550000220537186,
+          -0.675000011920929
+        ],
+        "max": [
+          2.450000047683716,
+          1.1450000256299973,
+          0.675000011920929
+        ]
+      },
+      "sourceTriangles": 12,
+      "insetBounds": {
+        "min": [
+          -1.0700000524520874,
+          1.0550000667572021,
+          -0.6570000052452087
+        ],
+        "max": [
+          2.450000047683716,
+          1.1449999809265137,
+          0.6570000052452087
+        ]
+      },
+      "replacementTriangles": 124,
+      "minimumMeasuredClearanceMetres": 0.017999999999999988,
+      "hullCrossSectionSamples": 8388
+    }
+  },
+  "rearBulkhead": {
+    "lowerCornersInset": true,
+    "minimumClearanceMetres": 0.03249005217551715,
+    "samples": 1104,
+    "bothHullSidesVerified": true,
+    "sourceHullAndRotorGeometryUnchanged": true
+  },
+  "airflow": {
+    "effect": "optional airflow cue, not smoke or physical refraction",
+    "emitters": [
+      [
+        -2.191940896987915,
+        2.560597538948059,
+        -0.4629784971475601
+      ],
+      [
+        -2.191940896987915,
+        2.560597538948059,
+        0.4629784971475601
+      ]
+    ],
+    "direction": [
+      -1,
+      0,
+      0
+    ],
+    "downstreamLength": 0.95,
+    "maxOpacity": 0.032,
+    "drawCalls": 1,
+    "triangles": 80,
+    "enabled": true,
+    "sourceUnchanged": true,
+    "rotorsUntouched": true,
+    "toggleTestPassed": true,
+    "runtimeOnly": true
+  }
+}

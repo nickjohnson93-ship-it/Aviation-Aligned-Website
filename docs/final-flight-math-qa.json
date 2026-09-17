@@ -1,0 +1,267 @@
+{
+  "passed": true,
+  "checkedAt": "2026-09-17T23:27:34.976Z",
+  "method": "Pure numeric sequence + static source checks; no browser/GPU/render inputs",
+  "viewports": [
+    {
+      "width": 320,
+      "height": 568,
+      "mobile": true,
+      "samples": 1501,
+      "originalHelicopterTravelPx": 1476.8,
+      "planeApproachScale": 0.6193548387096774,
+      "oldPlaneMaxScale": 0.43,
+      "approachScaleMultiplier": 1.4403600900225058,
+      "maxFunctionScale": 0.6193548387096774,
+      "maxVisibleScale": 0.6193548387096774,
+      "largeLogoWidthPx": 252.8,
+      "finalLogoWidthPx": 93.60000000000001,
+      "planeTransformHold": [
+        0.57,
+        1
+      ],
+      "planeFullOpacityHold": [
+        0.57,
+        0.68
+      ],
+      "largeLogoHold": [
+        0.77,
+        0.81
+      ],
+      "slowDock": [
+        0.81,
+        0.97
+      ],
+      "finiteMath": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "samples": 1501,
+      "originalHelicopterTravelPx": 2194.4,
+      "planeApproachScale": 0.6193548387096773,
+      "oldPlaneMaxScale": 0.43,
+      "approachScaleMultiplier": 1.4403600900225055,
+      "maxFunctionScale": 0.6193548387096773,
+      "maxVisibleScale": 0.6193548387096773,
+      "largeLogoWidthPx": 308.1,
+      "finalLogoWidthPx": 105.456,
+      "planeTransformHold": [
+        0.57,
+        1
+      ],
+      "planeFullOpacityHold": [
+        0.57,
+        0.68
+      ],
+      "largeLogoHold": [
+        0.77,
+        0.81
+      ],
+      "slowDock": [
+        0.81,
+        0.97
+      ],
+      "finiteMath": true
+    },
+    {
+      "width": 760,
+      "height": 900,
+      "mobile": true,
+      "samples": 1501,
+      "originalHelicopterTravelPx": 2340,
+      "planeApproachScale": 0.6193548387096774,
+      "oldPlaneMaxScale": 0.43,
+      "approachScaleMultiplier": 1.4403600900225058,
+      "maxFunctionScale": 0.6193548387096774,
+      "maxVisibleScale": 0.6193548387096774,
+      "largeLogoWidthPx": 600.4,
+      "finalLogoWidthPx": 128.96,
+      "planeTransformHold": [
+        0.57,
+        1
+      ],
+      "planeFullOpacityHold": [
+        0.57,
+        0.68
+      ],
+      "largeLogoHold": [
+        0.77,
+        0.81
+      ],
+      "slowDock": [
+        0.81,
+        0.97
+      ],
+      "finiteMath": true
+    },
+    {
+      "width": 761,
+      "height": 900,
+      "mobile": false,
+      "samples": 1501,
+      "originalHelicopterTravelPx": 2700,
+      "planeApproachScale": 1.1162790697674416,
+      "oldPlaneMaxScale": 0.43,
+      "approachScaleMultiplier": 2.595997836668469,
+      "maxFunctionScale": 1.1162790697674416,
+      "maxVisibleScale": 1.1162790697674416,
+      "largeLogoWidthPx": 471.82,
+      "finalLogoWidthPx": 156,
+      "planeTransformHold": [
+        0.57,
+        1
+      ],
+      "planeFullOpacityHold": [
+        0.57,
+        0.68
+      ],
+      "largeLogoHold": [
+        0.77,
+        0.81
+      ],
+      "slowDock": [
+        0.81,
+        0.97
+      ],
+      "finiteMath": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "mobile": false,
+      "samples": 1501,
+      "originalHelicopterTravelPx": 2304,
+      "planeApproachScale": 1.1162790697674418,
+      "oldPlaneMaxScale": 0.43,
+      "approachScaleMultiplier": 2.5959978366684693,
+      "maxFunctionScale": 1.1162790697674418,
+      "maxVisibleScale": 1.1162790697674418,
+      "largeLogoWidthPx": 634.88,
+      "finalLogoWidthPx": 181.0432,
+      "planeTransformHold": [
+        0.57,
+        1
+      ],
+      "planeFullOpacityHold": [
+        0.57,
+        0.68
+      ],
+      "largeLogoHold": [
+        0.77,
+        0.81
+      ],
+      "slowDock": [
+        0.81,
+        0.97
+      ],
+      "finiteMath": true
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "mobile": false,
+      "samples": 1501,
+      "originalHelicopterTravelPx": 2700,
+      "planeApproachScale": 1.1162790697674416,
+      "oldPlaneMaxScale": 0.43,
+      "approachScaleMultiplier": 2.595997836668469,
+      "maxFunctionScale": 1.1162790697674416,
+      "maxVisibleScale": 1.1162790697674416,
+      "largeLogoWidthPx": 753.6448598130842,
+      "finalLogoWidthPx": 254.592,
+      "planeTransformHold": [
+        0.57,
+        1
+      ],
+      "planeFullOpacityHold": [
+        0.57,
+        0.68
+      ],
+      "largeLogoHold": [
+        0.77,
+        0.81
+      ],
+      "slowDock": [
+        0.81,
+        0.97
+      ],
+      "finiteMath": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "mobile": false,
+      "samples": 1501,
+      "originalHelicopterTravelPx": 3240,
+      "planeApproachScale": 1.4628571428571426,
+      "oldPlaneMaxScale": 0.43,
+      "approachScaleMultiplier": 3.401993355481727,
+      "maxFunctionScale": 1.4628571428571426,
+      "maxVisibleScale": 1.4628571428571426,
+      "largeLogoWidthPx": 760,
+      "finalLogoWidthPx": 260,
+      "planeTransformHold": [
+        0.57,
+        1
+      ],
+      "planeFullOpacityHold": [
+        0.57,
+        0.68
+      ],
+      "largeLogoHold": [
+        0.77,
+        0.81
+      ],
+      "slowDock": [
+        0.81,
+        0.97
+      ],
+      "finiteMath": true
+    }
+  ],
+  "centreBehindHelicopter": true,
+  "helicopterPhysicalScrollMappingUnchanged": true,
+  "planeAbsentAndFansPausedAfter": 0.72,
+  "nativeSvg": {
+    "viewBox": "0 0 256 214",
+    "paths": 18,
+    "sha256": "155f4f3f7e075f8a681b46effcdc151633f7dd5c68728dd13747c1c330f85ad8",
+    "noRasterFontsOrLiveText": true
+  },
+  "fans": {
+    "outerClipRadius": 48,
+    "innerSpinnerCutoutRadius": 11,
+    "fanAnnuli": [
+      {
+        "x": 271,
+        "y": 532,
+        "rx": 38.88,
+        "ry": 48
+      },
+      {
+        "x": 861,
+        "y": 643,
+        "rx": 43.2,
+        "ry": 52.800000000000004
+      }
+    ],
+    "defaultPaused": true,
+    "phaseVisibilityGate": true,
+    "reducedMotionAnimationDisabled": true,
+    "visualIntakeAlignment": "Requires browser review; static/math tests cannot prove photo alignment"
+  },
+  "reduceMotion": {
+    "planeAndFanOverlayHidden": true,
+    "finalLogoVisible": true,
+    "legacyDockWidthRetained": true
+  },
+  "warnings": [
+    "Plane transform stops at progress .57 and stays fixed through its fade .68–.72; the final image width is 96% of the stage, matching the supplied reference composition."
+  ],
+  "visualLimitations": [
+    "Visual pacing, terrain appearance, perceived depth, intake alignment and final logo target placement require rendered browser review.",
+    "Static source checks prove the specified layer values/import order, not the browser cascade or GPU output."
+  ]
+}

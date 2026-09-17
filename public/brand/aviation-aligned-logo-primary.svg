@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="214" viewBox="0 0 256 214" role="img" aria-labelledby="title desc">
+  <title id="title">Aviation Aligned</title>
+  <desc id="desc">The original navy Aviation Aligned A, gold swept flight arrow and outlined two-line wordmark on a transparent background.</desc>
+  <metadata>Vector reconstruction from the supplied aviation-aligned-logo-primary.jpg, 256 by 214 pixels. Original monogram, lettering proportions, spacing, colours and rules retained. Letter shapes are outlined from that artwork: no replacement font, embedded raster, external font or background. Smooth arrow curves fitted to the clean source contour; the damaged transparent raster was not used. Original source raster is retained beside this asset.</metadata>
+  <defs>
+    <path id="aviation-a" fill-rule="evenodd" d="M10.6 0H14.6L25.8 25H20.8L18.4 19.3H6.9L4.5 25H0ZM8.6 15.2H16.7L12.65 5.4Z"/>
+  </defs>
+  <g fill="#01172c">
+    <path d="M124.7 10.7H135.1L163.2 66.4L143.6 73L129.6 42.5L112 80.4L82.6 90Z"/>
+    <path d="M154.4 85.8L172.3 81.9L191.9 123.8H169.3Z"/>
+    <use href="#aviation-a" x="10.5" y="149"/>
+    <path d="M44 149H49.2L56.8 167.6L64.4 149H69.5L58.6 174H54.2Z"/>
+    <path d="M81.2 149H85.8V174H81.2Z"/>
+    <use href="#aviation-a" x="98.1" y="149"/>
+    <path d="M132 149H153.2V153.2H144.7V174H140.1V153.2H132Z"/>
+    <path d="M165 149H169.6V174H165Z"/>
+    <path fill-rule="evenodd" d="M196.6 148.6C204.5 148.6 210.1 154 210.1 161.5C210.1 169 204.5 174.4 196.6 174.4C188.7 174.4 183.1 169 183.1 161.5C183.1 154 188.7 148.6 196.6 148.6ZM196.6 152.8C191.4 152.8 187.8 156.4 187.8 161.5C187.8 166.6 191.4 170.2 196.6 170.2C201.8 170.2 205.4 166.6 205.4 161.5C205.4 156.4 201.8 152.8 196.6 152.8Z"/>
+    <path d="M223 149H227.2L240.1 165.6V149H244.6V174H240.4L227.6 157V174H223Z"/>
+  </g>
+  <g fill="#c59422">
+    <path d="M38 114.6C98.333 82.887 158.667 69.854 219 56.8C174.833 73.403 130.667 89.282 86.5 123.1C72.9 114.3 52.3 113.6 38 114.6Z"/>
+    <path fill-rule="evenodd" d="M60.2 187.3H62.8L69.3 203H66.1L64.7 199.5H58.1L56.7 203H53.6ZM59.2 196.7H63.6L61.4 191.2Z"/>
+    <path d="M79.9 187.3H82.8V200.2H89.2V203H79.9Z"/>
+    <path d="M100 187.3H102.9V203H100Z"/>
+    <path d="M129.4 189.3L127.4 191.4C126.1 190.2 124.8 189.7 122.8 189.7C119.5 189.7 117.3 191.9 117.3 195C117.3 198.2 119.6 200.3 122.9 200.3C124.5 200.3 125.7 199.9 126.7 199.2V196.8H123.3V194.1H129.7V200.6C127.9 202.1 125.6 203.1 122.7 203.1C117.7 203.1 114.3 199.8 114.3 195C114.3 190.2 117.8 186.9 122.8 186.9C125.5 186.9 127.7 187.8 129.4 189.3Z"/>
+    <path d="M141.8 187.3H144.5L152.1 197.2V187.3H155V203H152.4L144.7 193.1V203H141.8Z"/>
+    <path d="M168 187.3H177.3V190.1H170.9V193.8H176.7V196.6H170.9V200.2H177.6V203H168Z"/>
+    <path fill-rule="evenodd" d="M189 187.3H195C200.1 187.3 203.4 190.4 203.4 195.2C203.4 200 200.1 203 195 203H189ZM192 190.2V200.1H194.8C198.2 200.1 200.3 198.3 200.3 195.2C200.3 192.1 198.2 190.2 194.8 190.2Z"/>
+  </g>
+  <path d="M10.5 194.6H41.4M213.5 194.6H244.5" fill="none" stroke="#c59422" stroke-width="1"/>
+</svg>

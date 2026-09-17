@@ -1,0 +1,9 @@
+.aircraft-scene-status{align-items:center;background:rgba(3,20,35,.75);border:1px solid rgba(255,255,255,.18);border-radius:4px;bottom:65px;color:#e5edf1;display:flex;font-size:11px;gap:10px;left:clamp(22px,4vw,64px);padding:9px 12px;position:absolute;z-index:6}
+.aircraft-scene-status button,.exhaust-airflow-control{appearance:none;background:rgba(3,20,35,.7);border:1px solid rgba(255,255,255,.28);border-radius:4px;color:#f0f4f5;cursor:pointer;font:inherit;pointer-events:auto}
+.aircraft-scene-status button{padding:5px 8px}
+.exhaust-airflow-control{align-items:center;bottom:26px;display:flex;font-size:10px;gap:7px;left:clamp(22px,4vw,64px);opacity:clamp(0,calc((.56 - var(--flight-progress))*10),1);padding:7px 10px;position:absolute;z-index:6}
+.exhaust-airflow-control[hidden]{display:none;pointer-events:none}
+.exhaust-airflow-control:before{background:#a1b5bd;border-radius:50%;content:'';height:4px;width:4px}.exhaust-airflow-control[aria-pressed=true]:before{background:#c7b582}
+.exhaust-airflow-control:hover,.aircraft-scene-status button:hover{border-color:#c7b582}.exhaust-airflow-control:focus-visible,.aircraft-scene-status button:focus-visible{outline:2px solid #c7b582;outline-offset:3px}
+@media(max-width:760px){.aircraft-scene-status{bottom:58px;font-size:10px;left:20px;max-width:calc(100% - 40px)}.exhaust-airflow-control{bottom:17px;left:20px;font-size:9px}}
+@media(prefers-reduced-motion:reduce){.exhaust-airflow-control{display:none}}
