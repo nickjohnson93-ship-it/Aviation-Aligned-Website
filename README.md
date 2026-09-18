@@ -20,6 +20,12 @@ mountain backdrop, held regional-jet approach and outlined SVG logo handoff.
 Exhaust airflow is optional and removable. Reduced-motion composition is
 provided; `aircraft=h145` retains the older optional scene.
 
+The v7 pacing update uses two phone-screen lengths of scroll travel and 25%
+less desktop travel, without intercepting touch or wheel scrolling. A tiny
+current-model WebP first frame covers the live 3D loading time. See
+`docs/hero-pacing-v7.md`; run `node scripts/verify-hero-startup.mjs` for the
+startup and visible-rotor preservation checks. The accepted native mesh remains v6.
+
 ## Aircraft licence and matching source
 
 The aircraft mesh derives from Heiko Schulz's GPL-2.0 EC135 source. Original

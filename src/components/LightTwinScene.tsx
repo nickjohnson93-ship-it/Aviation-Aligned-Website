@@ -5,6 +5,7 @@ import { loadLightTwin } from '../three/lightTwin'
 import { poseAt, STILL_POSE, aircraftOpacity } from '../three/choreography'
 import { createExhaustAirflow } from '../three/exhaustAirflow'
 import AircraftSceneStatus from './AircraftSceneStatus'
+import AircraftStartup from './AircraftStartup'
 
 export default function LightTwinScene({ progressRef, exhaustEnabled = true }: { progressRef: MutableRefObject<number>; exhaustEnabled?: boolean }) {
   const hostRef = useRef<HTMLDivElement>(null)
@@ -65,6 +66,12 @@ export default function LightTwinScene({ progressRef, exhaustEnabled = true }: {
     resize()
     const paint = () => {
       if (!aircraft || !alive) return
+      const opacity = motion.matches ? 1 : aircraftOpacity(progressRef.current)
+      renderer.domElement.style.opacity = String(opacity)
+      host.dataset.renderActive = String(opacity > .002)
+      // The pinned host stays in view for the plane/logo phases. Do not keep
+      // spending GPU time rendering the already-invisible helicopter.
+      if (opacity <= .002) return
       const p = progressRef.current, pose = motion.matches ? STILL_POSE : poseAt(p)
       aircraft.root.scale.setScalar(1.45)
       const compositionShift = camera.aspect < .8 ? 1.15 : .8
@@ -98,16 +105,22 @@ export default function LightTwinScene({ progressRef, exhaustEnabled = true }: {
       mainAngle = (mainAngle + dt * 400 / 60 * Math.PI * 2) % (Math.PI * 2)
       tailAngle = (tailAngle + dt * 3480 / 60 * Math.PI * 2) % (Math.PI * 2)
       paint(); frame = requestAnimationFrame(tick)
+      if (aircraftOpacity(progressRef.current) <= .002) { stop(); return }
       meterFrames++
       if (now - meterStarted > 1000) {
         host.dataset.measuredFps = (meterFrames * 1000 / (now - meterStarted)).toFixed(1)
         meterStarted = now; meterFrames = 0
       }
     }
-    const start = () => { if (!frame && alive && enabled && visible && !document.hidden && !motion.matches) { last = performance.now(); meterStarted = last; meterFrames = 0; frame = requestAnimationFrame(tick) } }
+    const start = () => { if (!frame && alive && enabled && visible && !document.hidden && !motion.matches && aircraftOpacity(progressRef.current) > .002) { last = performance.now(); meterStarted = last; meterFrames = 0; frame = requestAnimationFrame(tick) } }
     const refresh = () => { stop(); paint(); start() }
     const onResize = () => { resize(); paint() }
-    const onScroll = () => { if (motion.matches) paint() }
+    const onScroll = () => {
+      if (frame || !enabled) return
+      // The hero progress is updated in an earlier queued animation frame.
+      // This also resumes the aircraft when scrolling back into its phase.
+      frame = requestAnimationFrame(() => { frame = 0; paint(); start() })
+    }
     const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) start(); else stop() }, { rootMargin: '100px' })
     observer.observe(host)
     window.addEventListener('resize', onResize)
@@ -142,7 +155,7 @@ export default function LightTwinScene({ progressRef, exhaustEnabled = true }: {
       aircraft?.dispose(); key.shadow.dispose(); environment?.dispose(); pmrem.dispose(); renderer.dispose(); renderer.domElement.remove()
     }
   }, [progressRef])
-  return <><div ref={hostRef} className={`flight-scene light-twin-scene${ready && !failed ? ' is-ready' : ' is-loading'}`} role="img" aria-label="A rigged EC135-class light twin helicopter approaching and banking right, with main and ducted tail rotors turning">
-    {failed && <img className="light-twin-poster" src="/campaign/light-twin/forward-flight-review.png" alt="" />}
+  return <><div ref={hostRef} className={`flight-scene light-twin-scene${ready && !failed ? ' is-ready' : ' is-loading'}`} role="img" aria-label={ready&&!failed?'A rigged EC135-class light twin helicopter approaching and banking right, with main and ducted tail rotors turning':failed?'Current EC135-class helicopter static preview; 3D unavailable':'EC135-class helicopter, static first frame while 3D loads'}>
+    <AircraftStartup/>
   </div>{(!ready || failed) && <AircraftSceneStatus failed={failed}/>}</>
 }

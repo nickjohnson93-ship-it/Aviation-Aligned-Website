@@ -1,14 +1,18 @@
 import { Component, Suspense, lazy, useEffect, useState, type MutableRefObject, type ReactNode } from 'react'
 import AircraftSceneStatus from './AircraftSceneStatus'
+import AircraftStartup from './AircraftStartup'
 
 const FlightScene=lazy(()=>import('./FlightScene'))
-const LightTwinScene=lazy(()=>import('./LightTwinScene'))
 const lightTwinPreview=new URLSearchParams(window.location.search).get('aircraft')!=='h145'
+// Start fetching the selected scene as soon as the entry module runs, rather
+// than waiting for React's first render. Model/HDR requests start in the HTML.
+const lightTwinModule=lightTwinPreview?import('./LightTwinScene'):undefined
+const LightTwinScene=lazy(()=>lightTwinModule??import('./LightTwinScene'))
 
 // Loading and failed static-preview states are explicit: a stale lazy chunk
 // must not silently present the historical image as the latest native model.
-const fallback=lightTwinPreview?<AircraftSceneStatus/>:<div className="flight-scene is-unavailable" role="img" aria-label="An Airbus H145 helicopter in forward flight"/>
-const unavailable=lightTwinPreview?<><div className="flight-scene light-twin-scene is-loading" role="img" aria-label="Historical EC135 static preview, not the current 3D aircraft"><img className="light-twin-poster" src="/campaign/light-twin/forward-flight-review.png" alt=""/></div><AircraftSceneStatus failed/></>:fallback
+const fallback=lightTwinPreview?<><div className="flight-scene light-twin-scene is-loading" role="img" aria-label="EC135-class helicopter, static first frame while 3D loads"><AircraftStartup/></div><AircraftSceneStatus/></>:<div className="flight-scene is-unavailable" role="img" aria-label="An Airbus H145 helicopter in forward flight"/>
+const unavailable=lightTwinPreview?<><div className="flight-scene light-twin-scene is-loading" role="img" aria-label="Current EC135-class helicopter static preview; 3D unavailable"><AircraftStartup/></div><AircraftSceneStatus failed/></>:fallback
 
 class Boundary extends Component<{children:ReactNode},{failed:boolean}>{
   state={failed:false}

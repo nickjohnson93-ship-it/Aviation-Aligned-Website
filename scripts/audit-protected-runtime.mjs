@@ -26,8 +26,10 @@ const protectedSpans = [
     end: '      renderer.domElement.style.opacity = String(motion.matches ? 1 : aircraftOpacity(p))', includeEnd: true,
   },
   {
-    id: 'rotor-tick-speeds-dt-cap-and-lifecycle', file: 'scene',
-    start: '    const stop = () =>', end: '    const onLost =',
+    // v7 intentionally changes lifecycle: stop hidden rendering and resume
+    // on reverse scroll. Angular speeds, dt cap and visible sampling stay exact.
+    id: 'rotor-tick-speeds-dt-cap-and-visible-scheduling', file: 'scene',
+    start: '      const dt = Math.min', end: '      paint(); frame = requestAnimationFrame(tick)', includeEnd: true,
   },
   {
     id: 'environment-map-loading', file: 'scene',
@@ -86,6 +88,6 @@ export async function auditProtectedRuntime() {
       baselineSha256: sha256(baseline.choreography),
       currentSha256: sha256(current.choreography), exactMatch: true,
     },
-    note: 'Original rotor appearance, sampling, timing and lighting spans are exact; optional airflow/UI changes lie outside these spans.',
+    note: 'Original visible rotor appearance, sampling, angular speeds and lighting spans are exact. v7 intentionally changes hidden-render lifecycle; optional airflow/loading UI lie outside these spans.',
   }
 }

@@ -41,18 +41,20 @@ export default function MarketingSite(){
         const hero=heroRef.current
         if(!hero)return
         const rect=hero.getBoundingClientRect()
-        const travel=Math.max(1,hero.offsetHeight-window.innerHeight)
+        const stageHeight=hero.querySelector<HTMLElement>('.flight-stage')?.clientHeight||window.innerHeight
+        const travel=Math.max(1,hero.offsetHeight-stageHeight)
         const progress=Math.min(1,Math.max(0,-rect.top/travel))
-        progressRef.current=helicopterScrollProgress(-rect.top,window.innerHeight,window.innerWidth<=760)
+        progressRef.current=helicopterScrollProgress(-rect.top,stageHeight,window.innerWidth<=760)
         hero.style.setProperty('--flight-progress',String(progress))
-        const sequence=heroSequenceAt(progress,hero.clientWidth,window.innerHeight)
+        const sequence=heroSequenceAt(progress,hero.clientWidth,stageHeight)
+        hero.style.setProperty('--helicopter-opacity',String(Math.max(0,Math.min(1,(.56-progressRef.current)/.10))))
         for(const [key,value] of Object.entries(sequence)){
           const cssName=key.replace(/[A-Z]/g,letter=>'-'+letter.toLowerCase())
           if(key==='fansRunning')hero.style.setProperty('--fan-play-state',value?'running':'paused')
           else if(key==='logoDock')hero.style.setProperty('--logo-dock-progress',String(value))
           else hero.style.setProperty('--'+cssName,String(value)+(key==='logoWidth'?'px':''))
         }
-        hero.dataset.sequenceVersion='6'
+        hero.dataset.sequenceVersion='7'
         const manifesto=hero.querySelector<HTMLElement>('.flight-manifesto')
         if(manifesto)manifesto.inert=sequence.manifestoOpacity<.01&&!reducedMotion.matches
       })

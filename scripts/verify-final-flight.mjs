@@ -24,6 +24,8 @@ for (const [width, height] of viewports) {
   const mobile = width <= 760
   const originalDockWidth = (mobile ? clamp(width*.52,180,248) : clamp(width*.34,300,500))*.52
   const originalPhysicalTravel = height*(mobile?2.6:3)
+  const sequenceTravel = height*((mobile?MOBILE_HERO_HEIGHT_VH:HERO_HEIGHT_VH)/100-1)
+  const helicopterTravel = sequenceTravel*(mobile?.5:3/5.4)
   const largeWidth = Math.min(width*(mobile?.79:.62),760,height*.70*256/214)
   let previousDock = 0, previousWidth = Infinity, maxScale = 0, maxVisibleScale = 0
   let maxOpacity = 0, sampled = 0
@@ -76,22 +78,25 @@ for (const [width, height] of viewports) {
   }
   close(maxOpacity,1,'Plane never reaches full opacity')
   for (const fraction of [-.5,0,.1,.25,.5,.75,1,1.5,2]) {
-    const distance=originalPhysicalTravel*fraction
-    close(helicopterScrollProgress(distance,height,mobile),clamp(fraction,0,1),'Original helicopter physical scroll progress')
+    const distance=helicopterTravel*fraction
+    close(helicopterScrollProgress(distance,height,mobile),clamp(fraction,0,1),'Compressed helicopter physical scroll progress')
   }
   viewportResults.push({width,height,mobile,samples:sampled,originalHelicopterTravelPx:originalPhysicalTravel,
+    sequenceTravelPx:sequenceTravel,sequenceTravelScreens:sequenceTravel/height,helicopterTravelPx:helicopterTravel,
+    travelReductionFraction:1-sequenceTravel/(height*(mobile?5.2:5.4)),
     planeApproachScale:arrival.planeScale,oldPlaneMaxScale:.43,approachScaleMultiplier:arrival.planeScale/.43,
     maxFunctionScale:maxScale,maxVisibleScale,largeLogoWidthPx:largeWidth,finalLogoWidthPx:originalDockWidth,
     planeTransformHold:[.57,1],planeFullOpacityHold:[.57,.68],largeLogoHold:[.77,.81],slowDock:[.81,.97],finiteMath:true})
 }
 
-assert.equal(HERO_HEIGHT_VH,640,'Unexpected desktop authored hero distance')
-assert.equal(MOBILE_HERO_HEIGHT_VH,620,'Unexpected mobile authored hero distance')
-assert.match(css,/\.flight-story\s*\{height:640vh\}/,'Desktop hero CSS/math disagree')
-assert.match(css,/@media\(max-width:760px\)\{\.flight-story\{height:620vh\}/,'Mobile hero CSS/math disagree')
+assert.equal(HERO_HEIGHT_VH,505,'Unexpected desktop authored hero distance')
+assert.equal(MOBILE_HERO_HEIGHT_VH,300,'Unexpected mobile authored hero distance')
+assert.match(css,/\.flight-story\s*\{height:505vh;height:505svh\}/,'Desktop hero CSS/math disagree')
+assert.match(css,/@media\(max-width:760px\)\{\.flight-story\{height:300vh;height:300svh\}/,'Mobile hero CSS/math disagree')
+assert.match(css,/\.flight-stage\{height:100vh;height:100svh\}/,'Stage is not stable against phone address-bar resize')
 assert.ok(main.indexOf("'./final-flight.css'")>main.indexOf("'./flight-story.css'"),'Final overrides load before legacy styles')
-assert.match(marketing,/progressRef\.current=helicopterScrollProgress\(-rect\.top,window\.innerHeight,window\.innerWidth<=760\)/,'Website does not use original physical helicopter mapping')
-assert.match(marketing,/heroSequenceAt\(progress,hero\.clientWidth,window\.innerHeight\)/,'Website math receives wrong viewport inputs')
+assert.match(marketing,/progressRef\.current=helicopterScrollProgress\(-rect\.top,stageHeight,window\.innerWidth<=760\)/,'Website does not use compressed physical helicopter mapping')
+assert.match(marketing,/heroSequenceAt\(progress,hero\.clientWidth,stageHeight\)/,'Website math receives wrong stable viewport inputs')
 assert.match(marketing,/--fan-play-state',value\?'running':'paused'/,'Fan gate is not connected to animation-play-state')
 assert.match(marketing,/--logo-dock-progress/,'Logo docking is not connected')
 assert.match(marketing,/aviation-aligned-logo-primary\.svg/,'Website does not use crisp native SVG')
@@ -118,7 +123,7 @@ assert.ok(!/<rect\b/i.test(svg),'Logo has an opaque background rectangle')
 
 warnings.push('Plane transform stops at progress .57 and stays fixed through its fade .68–.72; the final image width is 96% of the stage, matching the supplied reference composition.')
 const report={passed:true,checkedAt:new Date().toISOString(),method:'Pure numeric sequence + static source checks; no browser/GPU/render inputs',
-  viewports:viewportResults,centreBehindHelicopter:true,helicopterPhysicalScrollMappingUnchanged:true,
+  viewports:viewportResults,centreBehindHelicopter:true,helicopterPathUnchanged:true,helicopterPhysicalScrollMappingUnchanged:false,
   planeAbsentAndFansPausedAfter:.72,nativeSvg:{viewBox:'0 0 256 214',paths:(svg.match(/<path\b/g)||[]).length,
     sha256:createHash('sha256').update(svg).digest('hex'),noRasterFontsOrLiveText:true},
   fans:{outerClipRadius:48,innerSpinnerCutoutRadius:11,fanAnnuli,defaultPaused:true,phaseVisibilityGate:true,

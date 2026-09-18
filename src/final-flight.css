@@ -1,6 +1,11 @@
 /* Final sequence: hold the plane's close approach, then a crisp vector logo
    at centre, followed by a separate slow scale-and-dock phase. */
-.flight-story{height:640vh}
+.flight-story{height:505vh;height:505svh}
+.flight-stage{height:100vh;height:100svh}
+.aircraft-startup{inset:0;opacity:var(--helicopter-opacity,1);pointer-events:none;position:absolute;transition:opacity .15s ease}
+.aircraft-startup img{display:block;width:100%;height:100%;object-fit:cover}
+.light-twin-scene.is-ready .aircraft-startup{opacity:0}
+.aircraft-scene-status:not(.is-failed){clip-path:inset(50%);height:1px!important;overflow:hidden;padding:0!important;position:absolute;width:1px!important}
 .flight-stage .flight-plane{aspect-ratio:3/2;left:50%;top:50%;width:min(86vw,1260px);height:auto;opacity:var(--plane-opacity,0);transform:translate(calc(-50% + var(--plane-x,0)*1vw),calc(-50% + var(--plane-y,0)*1vh)) scale(var(--plane-scale,.11)) rotate(calc(var(--plane-roll,-2)*1deg));transform-origin:center}
 .flight-plane>img{display:block;height:auto;max-width:none;width:100%}
 .plane-engine-motion{height:100%;inset:0;position:absolute;width:100%}
@@ -15,12 +20,14 @@
 .flight-stage .flight-target{opacity:var(--target-opacity,0)}
 .flight-stage .flight-manifesto{opacity:var(--manifesto-opacity,0);transform:none}
 .flight-stage .flight-kicker{opacity:calc(1 - var(--brand-background-opacity,0))}
-@media(max-width:760px){.flight-story{height:620vh}.flight-stage .flight-plane{width:155vw}.flight-stage .flight-wordmark{width:var(--logo-width,79vw)}}
+@media(max-width:760px){.flight-story{height:300vh;height:300svh}.flight-stage .flight-plane{width:155vw}.flight-stage .flight-wordmark{width:var(--logo-width,79vw)}}
 @media(prefers-reduced-motion:reduce){
+ .flight-stage{height:auto;min-height:100svh}
  .flight-story{height:auto}.flight-stage .flight-plane,.plane-engine-motion{display:none}.plane-fan{animation:none}
  .flight-stage .flight-wordmark{left:var(--target-x);top:var(--target-y);width:clamp(300px,34vw,500px);opacity:1;transform:translate(-50%,-50%) scale(.52)}
  .flight-stage .flight-terrain{opacity:.72}.flight-stage .flight-terrain-light{opacity:1}.flight-stage .flight-grid{opacity:.22}.flight-stage .flight-target{opacity:.3}.flight-stage .flight-manifesto{opacity:1}
  .flight-stage::before{display:none}
+ .aircraft-startup{opacity:1;transition:none}
 }
 @media(max-width:760px) and (prefers-reduced-motion:reduce){.flight-stage .flight-wordmark{width:clamp(180px,52vw,248px)}}
 .marketing-skip-link{background:#f4f2eb;color:#061d33;left:16px;padding:12px 18px;position:fixed;top:12px;transform:translateY(-160%);z-index:110}

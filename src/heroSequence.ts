@@ -1,8 +1,8 @@
 /** Scroll-authored plane approach and vector-logo handoff.
- * Helicopter progress stays on its original physical scroll distance.
+ * Native helicopter path and plane framing are unchanged; travel is shorter.
  */
-export const HERO_HEIGHT_VH = 640
-export const MOBILE_HERO_HEIGHT_VH = 620
+export const HERO_HEIGHT_VH = 505
+export const MOBILE_HERO_HEIGHT_VH = 300
 const clamp = (n: number) => Math.max(0, Math.min(1, n))
 const interval = (p: number, a: number, b: number) => clamp((p-a)/(b-a))
 const ease = (n: number) => n*n*(3-2*n)
@@ -37,5 +37,7 @@ export function heroSequenceAt(progress: number, width: number, height: number) 
 }
 
 export function helicopterScrollProgress(scrollDistance: number, height: number, mobile: boolean) {
-  return clamp(scrollDistance/Math.max(1,height*(mobile?2.6:3)))
+  // Keep the accepted helicopter/plane overlap when compressing the journey.
+  const travelScreens=(mobile?MOBILE_HERO_HEIGHT_VH:HERO_HEIGHT_VH)/100-1
+  return clamp(scrollDistance/Math.max(1,height*travelScreens*(mobile?.5:3/5.4)))
 }
