@@ -13,6 +13,32 @@
 .marketing-flow li{transition:border-color .4s}.marketing-flow li:hover{border-color:var(--mk-gold)}.marketing-flow li>span{display:inline-block;transition:transform .4s,color .4s}.marketing-flow li:hover>span{transform:translateY(-3px)}.implementation-steps article{transition:border-color .4s,transform .4s}.implementation-steps article:hover{border-color:var(--mk-gold);transform:translateY(-4px)}
 @media(max-width:1050px) and (min-width:761px){.capability-grid{grid-template-columns:repeat(2,1fr)}}
 
+/* Commercial story: source material to automated evidence. */
+.capability-grid{grid-template-columns:repeat(4,1fr)}
+.delivery-chain{align-items:center;border-bottom:1px solid #d8d3c5;border-top:1px solid #d8d3c5;color:var(--mk-navy);display:grid;font-size:.68rem;font-weight:800;grid-template-columns:auto 1fr auto 1fr auto 1fr auto;letter-spacing:.1em;margin-top:58px;padding:18px 0;text-transform:uppercase}
+.delivery-chain i{background:linear-gradient(90deg,#c6b772,var(--mk-gold));height:1px;margin:0 20px;position:relative}
+.delivery-chain i:after{border-right:1px solid var(--mk-gold);border-top:1px solid var(--mk-gold);content:'';height:5px;position:absolute;right:0;top:-2px;transform:rotate(45deg);width:5px}
+
+/* Workload and time-return story. */
+.workload-section{background:var(--mk-deep);color:#fff;display:grid;gap:72px;grid-template-columns:minmax(260px,.68fr) minmax(440px,1fr)}
+.workload-heading{align-self:start;position:sticky;top:130px}
+.workload-heading h2{font-size:clamp(2.8rem,4.6vw,5rem);font-weight:500;letter-spacing:-.05em;line-height:.96;margin:0}
+.workload-heading>p:last-child{color:#aab8c3;line-height:1.8;margin:30px 0 0;max-width:570px}
+.workload-grid{border-top:1px solid #294154}
+.workload-grid article{border-bottom:1px solid #294154;display:grid;gap:24px;grid-template-columns:44px 1fr;padding:27px 0;transition:border-color .3s,transform .3s}
+.workload-grid article:hover{border-color:var(--mk-gold);transform:translateX(5px)}
+.workload-grid article>span{color:var(--mk-gold);font-family:'Newsreader',Georgia,serif;font-size:1.25rem}
+.workload-grid h3{font-size:1rem;margin:0 0 8px}.workload-grid p{color:#aab8c3;font-size:.84rem;line-height:1.65;margin:0;max-width:62ch}
+.workload-estimator{background:linear-gradient(145deg,#0c2f4d,#071f38);border:1px solid rgba(212,175,55,.35);box-shadow:0 32px 85px -35px #000;display:grid;gap:45px;grid-column:1/-1;grid-template-columns:1fr .72fr;padding:clamp(30px,5vw,64px);position:relative}
+.workload-estimator:before,.workload-estimator:after{content:'';height:14px;position:absolute;width:14px}.workload-estimator:before{border-left:1px solid var(--mk-gold);border-top:1px solid var(--mk-gold);left:13px;top:13px}.workload-estimator:after{border-bottom:1px solid var(--mk-gold);border-right:1px solid var(--mk-gold);bottom:13px;right:13px}
+.estimator-controls h3{font-family:'Newsreader',Georgia,serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:500;line-height:1.08;margin:0 0 36px;max-width:650px}
+.estimator-controls label{display:block;margin-top:23px}.estimator-controls label span{color:#c0ccd5;display:flex;font-size:.76rem;justify-content:space-between}.estimator-controls label strong{color:#fff}.estimator-controls input{accent-color:var(--mk-gold);cursor:pointer;margin-top:12px;width:100%}
+.estimator-result{align-content:start;border-left:1px solid #365166;display:grid;padding-left:42px}.estimator-result>span{color:#91a4b2;font-size:.66rem;font-weight:800;letter-spacing:.12em;margin-top:3px;text-transform:uppercase}.estimator-result>strong{color:#fff;font-family:'Newsreader',Georgia,serif;font-size:clamp(2.7rem,5vw,4.9rem);font-weight:500;line-height:.92;margin:9px 0 30px}.estimator-result>strong small{color:var(--mk-gold);font-family:'DM Sans',Arial,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.estimator-result p{border-top:1px solid #365166;color:#b6c3cd;font-size:.78rem;line-height:1.7;margin:3px 0 0;padding-top:22px}
+.estimator-note{color:#8295a4;font-size:.66rem;grid-column:1/-1;line-height:1.6;margin:-22px 0 0}
+
+@media(max-width:1050px){.capability-grid{grid-template-columns:repeat(2,1fr)}.workload-section{grid-template-columns:1fr}.workload-heading{position:static}.workload-estimator{grid-template-columns:1fr .8fr}}
+@media(max-width:760px){.capability-grid{grid-template-columns:1fr}.delivery-chain{align-items:stretch;display:flex;flex-direction:column;margin-top:42px}.delivery-chain span{border-left:1px solid var(--mk-gold);padding:11px 0 11px 18px}.delivery-chain i{display:none}.workload-section{gap:48px}.workload-estimator{gap:36px;grid-template-columns:1fr;padding:30px 23px}.estimator-result{border-left:0;border-top:1px solid #365166;padding-left:0;padding-top:30px}.estimator-note{grid-column:1;margin:-12px 0 0}}
+
 /* ================= PREMIUM AESTHETIC PASS — whole page ================= */
 /* Editorial section-label detail: a short rule before every eyebrow */
 .marketing-eyebrow:before{background:currentColor;content:'';display:inline-block;height:1px;margin-right:12px;opacity:.55;vertical-align:middle;width:26px}
