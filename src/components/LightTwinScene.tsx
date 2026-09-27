@@ -5,7 +5,6 @@ import { loadLightTwin } from '../three/lightTwin'
 import { poseAt, STILL_POSE, aircraftOpacity } from '../three/choreography'
 import { createExhaustAirflow } from '../three/exhaustAirflow'
 import AircraftSceneStatus from './AircraftSceneStatus'
-import AircraftStartup from './AircraftStartup'
 
 export default function LightTwinScene({ progressRef, exhaustEnabled = true }: { progressRef: MutableRefObject<number>; exhaustEnabled?: boolean }) {
   const hostRef = useRef<HTMLDivElement>(null)
@@ -155,7 +154,5 @@ export default function LightTwinScene({ progressRef, exhaustEnabled = true }: {
       aircraft?.dispose(); key.shadow.dispose(); environment?.dispose(); pmrem.dispose(); renderer.dispose(); renderer.domElement.remove()
     }
   }, [progressRef])
-  return <><div ref={hostRef} className={`flight-scene light-twin-scene${ready && !failed ? ' is-ready' : ' is-loading'}`} role="img" aria-label={ready&&!failed?'A rigged EC135-class light twin helicopter approaching and banking right, with main and ducted tail rotors turning':failed?'Current EC135-class helicopter static preview; 3D unavailable':'EC135-class helicopter, static first frame while 3D loads'}>
-    <AircraftStartup/>
-  </div>{(!ready || failed) && <AircraftSceneStatus failed={failed}/>}</>
+  return <><div ref={hostRef} className={`flight-scene light-twin-scene${ready && !failed ? ' is-ready' : ' is-loading'}`} role="img" aria-label={ready&&!failed?'A rigged EC135-class light twin helicopter approaching and banking right, with main and ducted tail rotors turning':failed?'Current EC135-class helicopter unavailable':'EC135-class helicopter loading'} />{(!ready || failed) && <AircraftSceneStatus failed={failed}/>}</>
 }

@@ -1,6 +1,5 @@
 import { Component, Suspense, lazy, type MutableRefObject, type ReactNode } from 'react'
 import AircraftSceneStatus from './AircraftSceneStatus'
-import AircraftStartup from './AircraftStartup'
 
 const FlightScene=lazy(()=>import('./FlightScene'))
 const lightTwinPreview=new URLSearchParams(window.location.search).get('aircraft')!=='h145'
@@ -11,8 +10,8 @@ const LightTwinScene=lazy(()=>lightTwinModule??import('./LightTwinScene'))
 
 // Loading and failed static-preview states are explicit: a stale lazy chunk
 // must not silently present the historical image as the latest native model.
-const fallback=lightTwinPreview?<><div className="flight-scene light-twin-scene is-loading" role="img" aria-label="EC135-class helicopter, static first frame while 3D loads"><AircraftStartup/></div><AircraftSceneStatus/></>:<div className="flight-scene is-unavailable" role="img" aria-label="An Airbus H145 helicopter in forward flight"/>
-const unavailable=lightTwinPreview?<><div className="flight-scene light-twin-scene is-loading" role="img" aria-label="Current EC135-class helicopter static preview; 3D unavailable"><AircraftStartup/></div><AircraftSceneStatus failed/></>:fallback
+const fallback=lightTwinPreview?<><div className="flight-scene light-twin-scene is-loading" role="img" aria-label="EC135-class helicopter loading"/><AircraftSceneStatus/></>:<div className="flight-scene is-unavailable" role="img" aria-label="An Airbus H145 helicopter in forward flight"/>
+const unavailable=lightTwinPreview?<><div className="flight-scene light-twin-scene is-loading" role="img" aria-label="Current EC135-class helicopter unavailable"/><AircraftSceneStatus failed/></>:fallback
 
 class Boundary extends Component<{children:ReactNode},{failed:boolean}>{
   state={failed:false}
