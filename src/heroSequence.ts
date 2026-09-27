@@ -10,15 +10,15 @@ const mix = (a: number,b: number,t: number) => a+(b-a)*t
 
 export function heroSequenceAt(progress: number, width: number, height: number) {
   const p=clamp(progress),mobile=width<=760
-  const approach=ease(interval(p,.12,.54))
+  const approach=ease(interval(p,.12,.43))
   // Screenshot framing: image centre 46% / 53.3%, wings about 96% of
   // the stage width. Hold all transforms before fading into the logo.
   const planeBaseWidth=mobile?width*1.55:Math.min(width*.86,1260)
   const arrivalScale=width*.96/planeBaseWidth
-  const exit=ease(interval(p,.56,.62))
+  const exit=ease(interval(p,.44,.50))
   const planeOpacity=Math.min(ease(interval(p,.10,.18)),1-exit)
-  const logoOpacity=ease(interval(p,.61,.66))
-  const dock=ease(interval(p,.72,.94))
+  const logoOpacity=ease(interval(p,.49,.54))
+  const dock=ease(interval(p,.60,.86))
   const largeWidth=Math.min(width*(mobile?.79:.62),760,height*.70*256/214)
   const finalWidth=(mobile?Math.min(248,Math.max(180,width*.52)):Math.min(500,Math.max(300,width*.34)))*.52
   return {
@@ -28,11 +28,11 @@ export function heroSequenceAt(progress: number, width: number, height: number) 
     planeRoll:mix(-2,-1,approach),
     fansRunning:planeOpacity>.002,
     logoOpacity,logoDock:dock,logoWidth:mix(largeWidth,finalWidth,dock),
-    terrainOpacity:1-ease(interval(p,.60,.68)),
-    brandBackgroundOpacity:ease(interval(p,.60,.68)),
-    gridOpacity:mix(0,.31,ease(interval(p,.67,.84))),
-    targetOpacity:mix(0,.34,ease(interval(p,.69,.88))),
-    manifestoOpacity:ease(interval(p,.91,.98)),
+    terrainOpacity:1-ease(interval(p,.48,.56)),
+    brandBackgroundOpacity:ease(interval(p,.48,.56)),
+    gridOpacity:mix(0,.31,ease(interval(p,.55,.72))),
+    targetOpacity:mix(0,.34,ease(interval(p,.57,.76))),
+    manifestoOpacity:ease(interval(p,.83,.93)),
   }
 }
 
