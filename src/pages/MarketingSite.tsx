@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, BookOpenCheck, Check, ChevronDown, FileCheck2, Layers3, Menu, Radar, ShieldCheck, X } from 'lucide-react'
+import { ArrowRight, BookOpenCheck, ChevronDown, FileCheck2, Layers3, Menu, Radar, X } from 'lucide-react'
 import FlightSceneBoundary from '../components/FlightSceneBoundary'
 import FlightPlane from '../components/FlightPlane'
 import { heroSequenceAt, helicopterScrollProgress } from '../heroSequence'
@@ -22,7 +22,7 @@ const workloadItems=[
 
 const faqs=[
   ['Does Aviation Aligned make us CASA compliant?',"No. Compliance remains the operator's responsibility. Aviation Aligned supports training allocation, recurrence, evidence and controlled records. It does not determine applicability, approve an SMS or exposition, secure safety-manager acceptance, or replace professional advice."],
-  ['Is this a complete safety management system platform?',"Not today. Aviation Aligned focuses on training control and evidence. Hazard, risk, occurrence, assurance and management-of-change modules are possible future additions, not current capabilities."],
+  ['Is this only for compliance training?',"No. The aim is useful, role-relevant training that helps people understand and perform their work. Traceability, recurrence and retained evidence remove the administration around that training and keep the record ready when it is needed."],
   ['Can it support human factors and SMS-related training?',"It can support human factors and non-technical skills (HFNTS) and safety management system (SMS) training through configured role-based requirements, controlled knowledge assessments and retained evidence. The operator must confirm coverage, content, delivery method and any practical competency elements against its approved arrangements and current CASA guidance."],
   ['Can we bring our existing records?',"Reviewed legacy evidence can be migrated with provenance. Source spreadsheets are treated as evidence to validate, not unquestioned truth. Missing, conflicting or ambiguous records require an operator decision."],
   ['What about external training?',"External-provider evidence can be recorded and verified without representing it as Aviation Aligned-delivered training—important where CASA, a registered training organisation (RTO) or another authorised provider controls delivery. Recording external evidence does not issue an Aviation Aligned assessment certificate."],
@@ -66,7 +66,7 @@ export default function MarketingSite(){
   const progressRef=useRef(0)
   useEffect(()=>{
     const previous=document.title
-    document.title='Aviation Aligned | Training control and compliance evidence'
+    document.title='Aviation Aligned | Tailored aviation training and managed records'
     return()=>{document.title=previous}
   },[])
   useEffect(()=>{
@@ -126,19 +126,19 @@ export default function MarketingSite(){
           <div className="flight-wordmark"><img src="/brand/aviation-aligned-logo-primary.svg" width="256" height="214" decoding="async" alt="Aviation Aligned"/></div>
           <FlightSceneBoundary progressRef={progressRef}/>
           <FlightPlane/>
-          <div className="flight-manifesto"><h1>Control the requirement.<br/>Prove the result.</h1><p>Aviation Aligned connects people, operational roles, controlled source material and retained training evidence—without losing sight of how aviation actually works.</p><div className="marketing-actions"><a className="marketing-button" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17}/></a><a className="marketing-text-link" href="#product">See what we deliver</a></div></div>
+          <div className="flight-manifesto"><h1>Training that works.<br/>Records that stay ready.</h1><p>Aviation Aligned creates useful, role-relevant training and manages the recurrence, follow-up and evidence around it—without adding another administrative burden.</p><div className="marketing-actions"><a className="marketing-button" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17}/></a><a className="marketing-text-link" href="#product">See what we deliver</a></div></div>
           <div className="flight-scroll"><span>SCROLL TO ENTER</span><i/></div>
         </div>
       </section>
 
       <section className="marketing-section" id="product">
-        <div className="section-heading"><p className="marketing-eyebrow">WHAT WE DELIVER</p><h2>Your manuals become controlled training.<br/><em>Your recurrences run themselves.</em></h2><p>We create tailored training from your operation's manuals, align it to the people and roles that need it, automate the renewal cycle and retain the evidence. Your team spends less time building, chasing and reconciling—and more time running the operation.</p></div>
+        <div className="section-heading"><p className="marketing-eyebrow">WHAT WE DELIVER</p><h2>Training your people can use.<br/><em>Management that runs itself.</em></h2><p>We turn your operational knowledge into genuinely useful, role-relevant training. The platform keeps recurrences, records and evidence connected and moving—without your team having to build courses, chase completions or reconstruct the story later.</p></div>
         <div className="delivery-chain" aria-label="Aviation Aligned delivery process"><span>Your manuals</span><i aria-hidden="true"/><span>Tailored training</span><i aria-hidden="true"/><span>Automated recurrences</span><i aria-hidden="true"/><span>Audit-ready evidence</span></div>
         <div className="capability-grid">{capabilities.map(({icon:Icon,title,body},index)=><article key={title}><span className="capability-number" aria-hidden="true">0{index+1}</span><span className="capability-icon"><Icon aria-hidden="true"/></span><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>
 
       <section className="marketing-section workload-section" id="savings">
-        <div className="workload-heading"><p className="marketing-eyebrow">THE WORKLOAD WE REMOVE</p><h2>Give the operation<br/><em>its time back.</em></h2><p>Training control quietly consumes management time through course building, renewal chasing, record reconciliation and audit preparation. Aviation Aligned brings those tasks into one controlled cycle.</p></div>
+        <div className="workload-heading"><p className="marketing-eyebrow">A CLEARER WAY TO RUN TRAINING</p><h2>The workload<br/><em>we remove.</em></h2><p>We take the repetitive work out of training management—building content, chasing renewals, maintaining records and preparing evidence—so your team can focus on the operation.</p></div>
         <div className="workload-grid">{workloadItems.map(([title,body],index)=><article key={title}><span aria-hidden="true">0{index+1}</span><div><h3>{title}</h3><p>{body}</p></div></article>)}</div>
         <WorkloadEstimator/>
       </section>
@@ -148,14 +148,9 @@ export default function MarketingSite(){
         <ol className="marketing-flow"><li><span aria-hidden="true">01</span><div><h3>Review your manuals</h3><p>Identify the controlled procedures, responsibilities and training requirements already governing the operation.</p></div></li><li><span aria-hidden="true">02</span><div><h3>Build tailored training</h3><p>Create role-relevant pathways grounded in your material, including platform learning and external evidence where appropriate.</p></div></li><li><span aria-hidden="true">03</span><div><h3>Automate the cycle</h3><p>Assign recurrence, surface due dates and focus follow-up on the people who actually need action.</p></div></li><li><span aria-hidden="true">04</span><div><h3>Retrieve the record</h3><p>Move from status to completion, source version and retained evidence without reconstructing the story.</p></div></li></ol>
       </section>
 
-      <section className="marketing-section evidence-section">
-        <div className="evidence-panel"><p className="marketing-eyebrow">WHY AVIATION ALIGNED</p><h2>Built for aviation evidence,<br/><em>not generic course consumption.</em></h2><p>Training content stays connected to controlled source material and published versions. External credentials stay labelled as external. Historical completions are retained.</p><ul><li><Check aria-hidden="true"/> Versioned courses and source-traceable assessments</li><li><Check aria-hidden="true"/> Server-graded assessments and protected certificates</li><li><Check aria-hidden="true"/> Knowledge-deficiency follow-up without rewriting history</li><li><Check aria-hidden="true"/> Separate client workspaces with privileged-access multi-factor authentication</li></ul></div>
-        <div className="evidence-card"><ShieldCheck aria-hidden="true"/><span>EVIDENCE INTEGRITY</span><h3>Every current status should have a record behind it.</h3><p>Move from the live matrix to the person, requirement, completion and evidence trail without reconstructing the story across folders and inboxes.</p><div><BookOpenCheck aria-hidden="true"/><span>Controlled source</span><strong>Traceable</strong></div><div><FileCheck2 aria-hidden="true"/><span>Completion evidence</span><strong>Protected</strong></div></div>
-      </section>
-
       <section className="marketing-section implementation-section" id="implementation">
-        <div className="section-heading"><p className="marketing-eyebrow">FOUNDATION IMPLEMENTATION</p><h2>A controlled implementation.<br/><em>Not a software hand-off.</em></h2><p>Foundation operators work directly with Aviation Aligned to map sources, clean the starting record, configure roles and validate the first live evidence set.</p></div>
-        <div className="implementation-steps"><article><span aria-hidden="true">01</span><h3>Fit and responsibilities</h3><p>Confirm the operation, people, priorities and each party's responsibilities.</p></article><article><span aria-hidden="true">02</span><h3>Source review</h3><p>Review the matrix, controlled material, external credentials and record gaps.</p></article><article><span aria-hidden="true">03</span><h3>Configuration</h3><p>Set roles, profiles, requirements, recurrence and controlled pathways.</p></article><article><span aria-hidden="true">04</span><h3>Acceptance</h3><p>Validate access, workflows, evidence and agreed controls before go-live.</p></article></div>
+        <div className="section-heading"><p className="marketing-eyebrow">IMPLEMENTATION</p><h2>From first conversation to a<br/><em>ready-to-run training program.</em></h2><p>You work directly with Aviation Aligned throughout. We understand the result you need, bring forward what already exists, build the program and configure the platform around your operation.</p></div>
+        <div className="implementation-steps"><article><span aria-hidden="true">01</span><h3>Understand the goal</h3><p>We meet to understand what you want training to achieve, the problem to solve and the areas that need coverage.</p></article><article><span aria-hidden="true">02</span><h3>Bring forward your records</h3><p>Where available, we transpose your existing matrix and reviewed training records so you do not start again.</p></article><article><span aria-hidden="true">03</span><h3>Build your program</h3><p>We structure the roles, training content, recurrence and evidence pathways around your operation.</p></article><article><span aria-hidden="true">04</span><h3>Set up and go live</h3><p>We configure your client admin, check access and workflows with you, then hand over a program ready to run.</p></article></div>
       </section>
 
       <section className="deadline-strip" id="approach">
@@ -166,8 +161,7 @@ export default function MarketingSite(){
       </section>
 
       <section className="marketing-section roadmap-section" id="roadmap">
-        <div className="roadmap-current"><p className="marketing-eyebrow">CURRENT PLATFORM SCOPE</p><h2>Focused on training control today.</h2><p>Training structures shown in the internal pilot include safety-management knowledge, human factors and non-technical skills (HFNTS), drug and alcohol management plan (DAMP) knowledge, emergency response, fatigue, electronic flight bag (EFB) and induction pathways. Operator-specific content remains subject to source, licence, scope and review.</p><div className="chips"><span>Role profiles</span><span>Recurrent training</span><span>External evidence</span><span>Controlled manuals</span><span>Evidence packs</span></div></div>
-        <div className="roadmap-future"><span>FUTURE — NOT IN THE LAUNCH PROMISE</span><h3>Broader SMS operating modules</h3><p>Hazard and occurrence reporting, risk registers, assurance, performance indicators, management of change and action tracking are credible expansion areas—not capabilities for sale today.</p></div>
+        <div className="roadmap-current"><p className="marketing-eyebrow">BUILT AROUND YOUR OPERATION</p><h2>Useful training. Clear ownership. Less administration.</h2><p>Aviation Aligned is a training platform first: practical content shaped around your manuals, people and responsibilities, with recurrence and record keeping managed in the same place. Traceability supports the work—it does not define the value of the training.</p><div className="chips"><span>Role-based programs</span><span>Recurrent training</span><span>Useful learning content</span><span>Managed records</span><span>Retrievable evidence</span></div></div>
       </section>
 
       <section className="marketing-section faq-section" id="faq">
@@ -179,7 +173,7 @@ export default function MarketingSite(){
         <div><p className="marketing-eyebrow">FOUNDATION CONVERSATIONS</p><h2>Bring your matrix, your role structure and the problem you are trying to control.</h2></div><div><p>In a 30-minute working session, we can map your current process, identify priority gaps in your training evidence and decide whether a foundation implementation is a sensible fit.</p><p className="contact-status">Start with the public product tour, then contact Aviation Aligned when you are ready to discuss your own operation.</p><a className="marketing-button light" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17} aria-hidden="true"/></a><a className="marketing-contact-link" href="mailto:accounts@aviationaligned.com.au?subject=Aviation%20Aligned%20foundation%20conversation">accounts@aviationaligned.com.au</a></div>
       </section>
     </main>
-    <footer className="marketing-footer"><img src="/brand/aviation-aligned-logo-reverse.svg" width="256" height="214" alt="Aviation Aligned"/><p>Australian aviation training control and compliance evidence.</p><span>Software and implementation support—not legal or regulatory advice.</span>{new URLSearchParams(window.location.search).get('aircraft')!=='h145'&&<a className="aircraft-attribution" href="/campaign/light-twin/aircraft-refinement-source-v6.zip">Aircraft mesh: Heiko Schulz · GPL-2.0 · Corresponding source and refinements</a>}</footer>
+    <footer className="marketing-footer"><img src="/brand/aviation-aligned-logo-reverse.svg" width="256" height="214" alt="Aviation Aligned"/><p>Tailored aviation training and managed records.</p><span>Software and implementation support—not legal or regulatory advice.</span>{new URLSearchParams(window.location.search).get('aircraft')!=='h145'&&<a className="aircraft-attribution" href="/campaign/light-twin/aircraft-refinement-source-v6.zip">Aircraft mesh: Heiko Schulz · GPL-2.0 · Corresponding source and refinements</a>}</footer>
   </div>
 }
 
