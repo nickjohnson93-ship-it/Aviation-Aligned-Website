@@ -15,9 +15,9 @@
 
 /* Commercial story: source material to automated evidence. */
 .capability-grid{grid-template-columns:repeat(4,1fr)}
-.delivery-chain{align-items:center;border-bottom:1px solid #d8d3c5;border-top:1px solid #d8d3c5;color:var(--mk-navy);display:grid;font-size:.68rem;font-weight:800;grid-template-columns:auto 1fr auto 1fr auto 1fr auto;letter-spacing:.1em;margin-top:58px;padding:18px 0;text-transform:uppercase}
-.delivery-chain i{background:linear-gradient(90deg,#c6b772,var(--mk-gold));height:1px;margin:0 20px;position:relative}
-.delivery-chain i:after{border-right:1px solid var(--mk-gold);border-top:1px solid var(--mk-gold);content:'';height:5px;position:absolute;right:0;top:-2px;transform:rotate(45deg);width:5px}
+.delivery-chain{align-items:center;border-bottom:1px solid #d8d3c5;border-top:1px solid #d8d3c5;color:var(--mk-navy);display:grid;font-size:.68rem;font-weight:800;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr));letter-spacing:.1em;margin-top:58px;padding:18px 0;text-align:center;text-transform:uppercase}
+.delivery-chain span{align-items:center;display:flex;justify-content:center;min-height:28px;padding:0 12px}
+.delivery-chain i{display:none}
 
 /* Workload and time-return story. */
 .workload-section{background:var(--mk-deep);color:#fff;display:grid;gap:72px;grid-template-columns:minmax(260px,.68fr) minmax(440px,1fr)}
