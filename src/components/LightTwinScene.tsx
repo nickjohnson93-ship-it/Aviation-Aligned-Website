@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type MutableRefObject } from 'react'
 import * as THREE from 'three'
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js'
 import { loadLightTwin } from '../three/lightTwin'
-import { poseAt, STILL_POSE, aircraftOpacity } from '../three/choreography'
+import { poseAt, STILL_POSE, aircraftOpacity, mobileOpeningXOffset } from '../three/choreography'
 import { createExhaustAirflow } from '../three/exhaustAirflow'
 import AircraftSceneStatus from './AircraftSceneStatus'
 
@@ -73,8 +73,10 @@ export default function LightTwinScene({ progressRef, exhaustEnabled = true }: {
       if (opacity <= .002) return
       const p = progressRef.current, pose = motion.matches ? STILL_POSE : poseAt(p)
       aircraft.root.scale.setScalar(1.45)
-      const compositionShift = camera.aspect < .8 ? 1.15 : .8
-      aircraft.root.position.set((pose.x + compositionShift) * reach, pose.y - 3.2, pose.z * .83 * reach)
+      const mobile = camera.aspect < .8
+      const compositionShift = mobile ? 1.15 : .8
+      const openingOffset = motion.matches ? 0 : mobileOpeningXOffset(p, mobile, compositionShift)
+      aircraft.root.position.set((pose.x + compositionShift + openingOffset) * reach, pose.y - 3.2, pose.z * .83 * reach)
       aircraft.root.rotation.order = 'YZX'
       aircraft.root.rotation.set(pose.roll, pose.yaw, pose.pitch)
       key.target.position.copy(aircraft.root.position)
@@ -123,16 +125,18 @@ export default function LightTwinScene({ progressRef, exhaustEnabled = true }: {
     const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) start(); else stop() }, { rootMargin: '100px' })
     observer.observe(host)
     window.addEventListener('resize', onResize)
+    window.visualViewport?.addEventListener('resize', onResize)
     window.addEventListener('scroll', onScroll, { passive: true })
     document.addEventListener('visibilitychange', refresh)
     motion.addEventListener('change', refresh)
     const onLost = (event: Event) => { event.preventDefault(); enabled = false; stop(); setFailed(true); setReady(false) }
     renderer.domElement.addEventListener('webglcontextlost', onLost)
-    const skyPromise = new RGBELoader().loadAsync('/campaign/light-twin/flight-sky-1k.hdr').then(texture => {
+    new RGBELoader().loadAsync('/campaign/light-twin/flight-sky-1k.hdr').then(texture => {
       if (!alive) { texture.dispose(); return }
       environment = pmrem.fromEquirectangular(texture); texture.dispose(); scene.environment = environment.texture
-    })
-    const modelPromise = loadLightTwin(samples, tailSamples).then(model => {
+      paint()
+    }).catch(error => { if (alive) console.warn('Aircraft lighting environment unavailable', error) })
+    loadLightTwin(samples, tailSamples).then(model => {
       if (!alive) { model.dispose(); return }
       aircraft = model; scene.add(model.root)
       const airframe = model.root.getObjectByName('LightTwin_Aircraft')!
@@ -140,14 +144,15 @@ export default function LightTwinScene({ progressRef, exhaustEnabled = true }: {
       airframe.add(airflow.root); airflowRef.current = airflow
       airflow.setEnabled(exhaustEnabledRef.current && !motion.matches)
       host.dataset.modelVersion = String(airframe.userData.productionRefinement)
-    })
-    Promise.all([skyPromise, modelPromise]).then(() => {
-      if (!alive) return
-      enabled = true; setReady(true); paint(); start()
+      enabled = true
+      // Reveal the model as soon as its geometry is available. The HDR
+      // environment can finish independently instead of blocking first paint.
+      resize(); paint(); setReady(true); start()
     }).catch(error => { if (alive) { console.warn('Light-twin preview unavailable', error); enabled = false; stop(); setFailed(true) } })
     return () => {
       alive = false; stop(); observer.disconnect()
       window.removeEventListener('resize', onResize); window.removeEventListener('scroll', onScroll)
+      window.visualViewport?.removeEventListener('resize', onResize)
       document.removeEventListener('visibilitychange', refresh); motion.removeEventListener('change', refresh)
       renderer.domElement.removeEventListener('webglcontextlost', onLost)
       airflowRef.current?.dispose(); airflowRef.current = null

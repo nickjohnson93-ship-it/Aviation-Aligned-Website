@@ -20,6 +20,21 @@ const HELI:Key[]=[
 
 function ease(t:number){return t*t*(3-2*t)}
 
+/**
+ * Portrait screens expose much less of the world-space flight path. Begin the
+ * phone sequence on the camera centreline, then merge smoothly into the
+ * authored rightward path. Keeping the correction in the choreography avoids
+ * a CSS first-frame nudge that snaps back when WebGL starts painting.
+ */
+export function mobileOpeningXOffset(p:number,mobile:boolean,compositionBase=0){
+  if(!mobile||p>=.24)return 0
+  const t=ease(Math.max(0,Math.min(1,p/.24)))
+  const authoredX=poseAt(p).x+compositionBase
+  const handoffX=HELI.find(key=>key.p===.24)!.x+compositionBase
+  const mobileX=handoffX*t
+  return mobileX-authoredX
+}
+
 export function poseAt(p:number):Pose{
   const k=HELI
   if(p<=k[0].p)return k[0]
