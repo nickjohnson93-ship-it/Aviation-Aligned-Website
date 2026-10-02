@@ -145,7 +145,7 @@ export default function MarketingSite(){
 
       <section className="marketing-section flow-section" id="how-it-works">
         <div className="section-heading narrow"><p className="marketing-eyebrow">HOW IT WORKS</p><h2>From your source material to <em>retrievable evidence.</em></h2></div>
-        <ol className="marketing-flow"><li><span aria-hidden="true">01</span><div><h3>Review your manuals</h3><p>Identify the controlled procedures, responsibilities and training requirements already governing the operation.</p></div></li><li><span aria-hidden="true">02</span><div><h3>Build tailored training</h3><p>Create role-relevant pathways grounded in your material, including platform learning and external evidence where appropriate.</p></div></li><li><span aria-hidden="true">03</span><div><h3>Automate the cycle</h3><p>Assign recurrence, surface due dates and focus follow-up on the people who actually need action.</p></div></li><li><span aria-hidden="true">04</span><div><h3>Retrieve the record</h3><p>Move from status to completion, source version and retained evidence without reconstructing the story.</p></div></li></ol>
+        <ol className="marketing-flow"><li><span aria-hidden="true">01</span><div><h3>Extract what matters for training</h3><p>Draw out the procedures, responsibilities and controls relevant to each role, then shape them into clear, practical learning.</p></div></li><li><span aria-hidden="true">02</span><div><h3>Build tailored training</h3><p>Create role-relevant pathways grounded in your material, including platform learning and external evidence where appropriate.</p></div></li><li><span aria-hidden="true">03</span><div><h3>Automate the cycle</h3><p>Assign recurrence, surface due dates and focus follow-up on the people who actually need action.</p></div></li><li><span aria-hidden="true">04</span><div><h3>Retrieve the record</h3><p>Move from status to completion, source version and retained evidence without reconstructing the story.</p></div></li></ol>
       </section>
 
       <section className="marketing-section implementation-section" id="implementation">
@@ -167,6 +167,13 @@ export default function MarketingSite(){
       <section className="marketing-section faq-section" id="faq">
         <div className="section-heading narrow"><p className="marketing-eyebrow">STRAIGHT ANSWERS</p><h2>Clarity before <em>commitment.</em></h2></div>
         <div className="faq-list">{faqs.map(([question,answer],index)=><article key={question}><button id={`faq-question-${index}`} type="button" aria-expanded={openFaq===index} aria-controls={openFaq===index?`faq-answer-${index}`:undefined} onClick={()=>setOpenFaq(openFaq===index?-1:index)}><span>{question}</span><ChevronDown aria-hidden="true"/></button>{openFaq===index&&<p id={`faq-answer-${index}`}>{answer}</p>}</article>)}</div>
+      </section>
+
+      <section className="marketing-section founder-section" id="founder">
+        <figure className="founder-photo">
+          <img src="/brand/nick-johnson-founder-v1.png" alt="Nick Johnson in an aviation hangar with a fixed-wing aircraft and helicopter" loading="lazy" decoding="async" />
+        </figure>
+        <div className="founder-copy"><p className="marketing-eyebrow">BUILT FROM INSIDE AVIATION OPERATIONS</p><h2>Created by someone who understands the workload.</h2><p>Aviation Aligned was created by Nick Johnson—an active helicopter line pilot with more than 2,500 flight hours and an active Safety and Quality Manager within an aviation business of 50–100 people.</p><p>Nick understands the reality behind aviation training: turning manuals into useful learning, keeping requirements current, following up incomplete training and producing reliable evidence when it is requested. Aviation Aligned was built to solve those problems for the people completing the training and the people responsible for managing it.</p></div>
       </section>
 
       <section className="contact-section" id="contact">
