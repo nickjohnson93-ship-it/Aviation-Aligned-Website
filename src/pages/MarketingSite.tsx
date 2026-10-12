@@ -66,7 +66,7 @@ export default function MarketingSite(){
   const progressRef=useRef(0)
   useEffect(()=>{
     const previous=document.title
-    document.title='Aviation Aligned | Tailored aviation training and managed records'
+    document.title='Aviation Compliance Training & Evidence | Aviation Aligned'
     return()=>{document.title=previous}
   },[])
   useEffect(()=>{
@@ -126,7 +126,7 @@ export default function MarketingSite(){
           <div className="flight-wordmark"><img src="/brand/aviation-aligned-logo-primary.svg" width="256" height="214" decoding="async" alt="Aviation Aligned"/></div>
           <FlightSceneBoundary progressRef={progressRef}/>
           <FlightPlane/>
-          <div className="flight-manifesto"><h1>Training that works.<br/>Records that stay ready.</h1><p>Aviation Aligned creates useful, role-relevant training and manages the recurrence, follow-up and evidence around it—without adding another administrative burden.</p><div className="marketing-actions"><a className="marketing-button" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17}/></a><a className="marketing-text-link" href="#product">See what we deliver</a></div></div>
+          <div className="flight-manifesto"><h1>Aviation training that works.<br/>Records that stay ready.</h1><p>Aviation Aligned creates useful, role-relevant training for Australian aviation operators and manages the recurrent requirements, follow-up and audit-ready evidence around it—without adding another administrative burden.</p><div className="marketing-actions"><a className="marketing-button" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17}/></a><a className="marketing-text-link" href="#product">See what we deliver</a></div></div>
           <div className="flight-scroll"><span>SCROLL TO ENTER</span><i/></div>
         </div>
       </section>
