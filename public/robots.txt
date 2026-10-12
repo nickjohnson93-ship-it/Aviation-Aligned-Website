@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aviationaligned.com.au/sitemap.xml
