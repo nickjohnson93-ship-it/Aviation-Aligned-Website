@@ -180,7 +180,19 @@ export default function MarketingSite(){
         <div><p className="marketing-eyebrow">FOUNDATION CONVERSATIONS</p><h2>Bring your matrix, your role structure and the problem you are trying to control.</h2></div><div><p>In a 30-minute working session, we can map your current process, identify priority gaps in your training evidence and decide whether a foundation implementation is a sensible fit.</p><p className="contact-status">Start with the public product tour, then contact Aviation Aligned when you are ready to discuss your own operation.</p><a className="marketing-button light" href={`${portalUrl}/demo`}>Explore the working demo <ArrowRight size={17} aria-hidden="true"/></a><a className="marketing-contact-link" href="mailto:accounts@aviationaligned.com.au?subject=Aviation%20Aligned%20foundation%20conversation">accounts@aviationaligned.com.au</a></div>
       </section>
     </main>
-    <footer className="marketing-footer"><img src="/brand/aviation-aligned-logo-reverse.svg" width="256" height="214" alt="Aviation Aligned"/><p>Tailored aviation training and managed records.</p><span>Software and implementation support—not legal or regulatory advice.</span>{new URLSearchParams(window.location.search).get('aircraft')!=='h145'&&<a className="aircraft-attribution" href="/campaign/light-twin/aircraft-refinement-source-v6.zip">Aircraft mesh: Heiko Schulz · GPL-2.0 · Corresponding source and refinements</a>}</footer>
+    <footer className="marketing-footer">
+      <div className="marketing-footer-brand">
+        <img src="/brand/aviation-aligned-logo-reverse.svg" width="256" height="214" alt="Aviation Aligned"/>
+        <p>Tailored aviation training and managed records.</p>
+      </div>
+      <div className="marketing-footer-contact" aria-label="Aviation Aligned business details">
+        <p>AVIATION ALIGNED</p>
+        <a href="mailto:info@aviationaligned.com.au">info@aviationaligned.com.au</a>
+        <span>ABN 59 705 039 944</span>
+        <span>Australia</span>
+      </div>
+      <p className="marketing-footer-note">Software and implementation support—not legal or regulatory advice.</p>
+    </footer>
   </div>
 }
 
